@@ -80,7 +80,7 @@
 		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U)    AS(Y)   AS(SEMI) 
 		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	        AS(H) AS(N) AS(E) AS(I) AS(O)
 		AS(Z) AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &mt LSFT RET
-          				&mo 1 &kp BSPC  				&kp SPC &mo 2 
+          				&lt 1 TAB &kp BSPC  				&kp SPC &lt 2 RET
 		>;
 		};
 
