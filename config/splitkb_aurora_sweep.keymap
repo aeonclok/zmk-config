@@ -67,7 +67,7 @@
 		&kp Q &kp D &kp J &kp P &kp G 						&kp F &kp R  &kp U    &kp Y   &kp SEMI 
 		&kp A &kp L &kp S &kp T &kp K 			        	        &kp H &kp N &kp E &kp I &kp O
 		&mt LSFT Z &kp X &kp C &kp V &kp B				        &kp W &kp M  &kp QUOT &kp DOT &mt LSFT RET
-          				&mo 1 &kp LCTL  				&kp SPC &mo 2 
+          				&mo 1 &kp BSPC  				&kp SPC &mo 2 
 		>;
 		};
 
