@@ -76,9 +76,9 @@
 
        	default_layer {
 		bindings = <
-		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U)    AS(Y)   AS(SEMI) 
-		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	        AS(H) AS(N) AS(E) AS(I) AS(O)
-		&mt LSFT Z AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &mt LSFT RET
+		&kp Q &kp D &kp J &kp P &kp G 						&kp F &kp R  &kp U    &kp Y   &kp SEMI 
+		&kp A &kp L &kp S &kp T &kp K 			        	        &kp H &kp N &kp E &kp I &kp O
+		&mt LSFT Z &kp X &kp C &kp V &kp B				        &kp W &kp M  &kp QUOT &kp DOT &mt LSFT RET
           				&mo 1 &kp BSPC  				&kp SPC &mo 2 
 		>;
 		};
