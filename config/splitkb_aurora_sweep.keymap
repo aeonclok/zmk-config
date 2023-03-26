@@ -31,92 +31,6 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-
-        combo_lalt {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
-            bindings = <&kp LALT>;
-        };
-        
-        combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp RALT>;
-        };
-
-        combo_lcontrol {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
-            bindings = <&kp LCTRL>;
-        };
-        
-        combo_rcontrol {
-            timeout-ms = <50>;
-            key-positions = <18 19>;
-            bindings = <&kp RCTRL>;
-        };
-
-        combo_lshift {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp LSHFT>;
-        };
-        
-        combo_rshift {
-            timeout-ms = <50>;
-            key-positions = <16 17>;
-            bindings = <&kp RSHFT>;
-        };
-        
-        combo_lgui {
-            timeout-ms = <50>;
-            key-positions = <13 14>;
-            bindings = <&kp LGUI>;
-        };
-        
-       combo_rgui {
-            timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&kp RGUI>;
-        };
-        
-        combo_lalt_lctrl {
-            timeout-ms = <50>;
-            key-positions = <10 11 12>;
-            bindings = <&kp LA(LCTRL)>;
-        };
-        
-       combo_ralt_rctrl {
-            timeout-ms = <50>;
-            key-positions = <17 18 19>;
-            bindings = <&kp RA(RCTRL)>;
-        };
-        
-        combo_lctrl_lshift {
-            timeout-ms = <50>;
-            key-positions = <11 12 13>;
-            bindings = <&kp LC(LSHFT)>;
-        };
-        
-       combo_rctrl_rshift {
-            timeout-ms = <50>;
-            key-positions = <16 17 18>;
-            bindings = <&kp RC(RSHFT)>;
-        };
-        
-        combo_lshift_lgui {
-            timeout-ms = <50>;
-            key-positions = <12 13 14>;
-            bindings = <&kp LG(LSHFT)>;
-        };
-        
-       combo_rshift_rgui {
-            timeout-ms = <50>;
-            key-positions = <15 16 17>;
-            bindings = <&kp RG(RSHFT)>;
-        };
-
-        
     };
 
     behaviors {
@@ -212,16 +126,6 @@
             quick_tap_ms = <200>;
         };
 
-
-        as: auto_shift {
-            compatible = "zmk,behavior-hold-tap";
-            label = "AUTO_SHIFT";
-            #binding-cells = <2>;
-            tapping_term_ms = <175>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
     };
 
     keymap {
