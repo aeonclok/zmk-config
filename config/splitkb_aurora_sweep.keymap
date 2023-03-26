@@ -76,25 +76,25 @@
         combo_lalt_lctrl {
             timeout-ms = <50>;
             key-positions = <10 11 12>;
-            bindings = <&kp LGUI>;
+            bindings = <&kp LA(LCTRL)>;
         };
         
        combo_ralt_rctrl {
             timeout-ms = <50>;
             key-positions = <17 18 19>;
-            bindings = <&kp RGUI>;
+            bindings = <&kp RA(RCTRL)>;
         };
         
         combo_lctrl_lshift {
             timeout-ms = <50>;
             key-positions = <11 12 13>;
-            bindings = <&kp LGUI>;
+            bindings = <&kp LC(LSHFT)>;
         };
         
        combo_rctrl_rshift {
             timeout-ms = <50>;
             key-positions = <16 17 18>;
-            bindings = <&kp RGUI>;
+            bindings = <&kp RC(RSHFT)>;
         };
 
         
