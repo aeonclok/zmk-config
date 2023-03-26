@@ -96,6 +96,18 @@
             key-positions = <16 17 18>;
             bindings = <&kp RC(RSHFT)>;
         };
+        
+        combo_lshift_lgui {
+            timeout-ms = <50>;
+            key-positions = <12 13 14>;
+            bindings = <&kp LC(LSHFT)>;
+        };
+        
+       combo_rshift_rgui {
+            timeout-ms = <50>;
+            key-positions = <15 16 17>;
+            bindings = <&kp RC(RSHFT)>;
+        };
 
         
     };
