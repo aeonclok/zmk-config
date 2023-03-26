@@ -10,6 +10,9 @@
 
 #define AS(keycode) &as LS(keycode) keycode
 
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
+#define KEYS_T 30 31 32 34  
 
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
@@ -226,9 +229,9 @@
 
        	default_layer {
 		bindings = <
-		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U) AS(Y) AS(SEMI) 
-		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	AS(H) AS(N) AS(E) AS(I) AS(O)
-		AS(Z) AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &kp COMMA
+        &kp Q &kp D &kp J &kp P &kp G 						&kp F &kp R  &kp U    &kp Y   &kp SEMI 
+		&kp A &kp L &kp S &kp T &kp K 			        	        &kp H &kp N &kp E &kp I &kp O
+		&mt LSFT Z &kp X &kp C &kp V &kp B				        &kp W &kp M  &kp QUOT &kp DOT &mt LSFT RET
           			&lt 1 TAB &kp BSPC  				    &kp SPC &lt 2 RET
 		>;
 		};
