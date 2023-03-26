@@ -10,6 +10,10 @@
 
 #define AS(keycode) &as LS(keycode) keycode
 
+
+#define HM_TAPPING_TERM 300
+#define HM_TAPPING_TERM_FAST 200
+
 &mt {
   //  flavor = "tap-preferred";
    // tapping_term_ms = <200>;
@@ -114,7 +118,7 @@
 
     behaviors {
 
-                // Positional Homerow mods
+        // Positional Homerow mods
         // Homerow mods that prevent accidental activations when rolling keys,
         // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
         // qwerty.
@@ -205,7 +209,7 @@
             quick_tap_ms = <200>;
         };
 
-        
+
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
