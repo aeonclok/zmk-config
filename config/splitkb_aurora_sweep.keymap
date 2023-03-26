@@ -42,7 +42,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
             key-positions = <12 13>;
-            bindings = <&kp LPAR>;
+            bindings = <&kp LS(NUMBER_8)>;
         };
 
         combo_bracket_round_r {
@@ -50,7 +50,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
             key-positions = <16 17>;
-            bindings = <&kp RPAR>;
+            bindings = <&kp LS(NUMBER_9)>;
         };
 
         combo_bracket_square_l {
@@ -58,7 +58,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
             key-positions = <22 23>;
-            bindings = <&kp LBKT>;
+            bindings = <&kp LA(NUMBER_8)>;
         };
 
         combo_bracket_square_r {
@@ -66,7 +66,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
             key-positions = <26 27>;
-            bindings = <&kp RBKT>;
+            bindings = <&kp LA(NUMBER_9)>;
         };
 
         combo_bracket_curly_l {
@@ -74,7 +74,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
             key-positions = <2 3>;
-            bindings = <&kp LBRC>;
+            bindings = <&kp LA(LS(NUMBER_8))>;
         };
 
         combo_bracket_curly_r {
@@ -82,23 +82,23 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
             key-positions = <6 7>;
-            bindings = <&kp RBRC>;
+            bindings = <&kp LA(LS(NUMBER_9))>;
         };
 
         combo_bracket_angled_l {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
-            key-positions = <3 4>;
-            bindings = <&kp LT>;
+            key-positions = <13 14>;
+            bindings = <&kp GRAVE>;
         };
 
-            combo_bracket_angled_r {
+        combo_bracket_angled_r {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
 
-            key-positions = <5 6>;
-            bindings = <&kp GT>;
+            key-positions = <15 16>;
+            bindings = <&kp LS(GRAVE)>;
         };
     };
 
