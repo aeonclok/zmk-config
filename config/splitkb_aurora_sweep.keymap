@@ -24,35 +24,52 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-        
-         combo_tab {
+
+        combo_lalt {
             timeout-ms = <50>;
             key-positions = <10 11>;
-            bindings = <&kp TAB>;
-        };
-        
-            combo_ralt {
-            timeout-ms = <50>;
-            key-positions = <17 16>;
-            bindings = <&kp RALT>;
-        };
-        
-                    combo_lalt {
-            timeout-ms = <50>;
-            key-positions = <11 12>;
             bindings = <&kp LALT>;
         };
         
-                           combo_lgui {
+        combo_ralt {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp RALT>;
+        };
+
+        combo_lcontrol {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp LCTRL>;
+        };
+        
+        combo_rcontrol {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&kp RCTRL>;
+        };
+
+        combo_lshift {
             timeout-ms = <50>;
             key-positions = <12 13>;
+            bindings = <&kp LSHFT>;
+        };
+        
+        combo_rshift {
+            timeout-ms = <50>;
+            key-positions = <16 17>;
+            bindings = <&kp RSHFT>;
+        };
+        
+        combo_lgui {
+            timeout-ms = <50>;
+            key-positions = <14 14>;
             bindings = <&kp LGUI>;
         };
         
-        
        combo_rgui {
             timeout-ms = <50>;
-            key-positions = <17 18>;
+            key-positions = <15 16>;
             bindings = <&kp RGUI>;
         };
         
@@ -77,10 +94,10 @@
 
        	default_layer {
 		bindings = <
-		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U)    AS(Y)   AS(SEMI) 
-		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	        AS(H) AS(N) AS(E) AS(I) AS(O)
-		AS(Z) AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &mt LSFT RET
-          				&lt 1 TAB &kp BSPC  				&kp SPC &lt 2 RET
+		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U) AS(Y) AS(SEMI) 
+		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	AS(H) AS(N) AS(E) AS(I) AS(O)
+		AS(Z) AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &kp COMMA
+          			&lt 1 TAB &kp BSPC  				    &kp SPC &lt 2 RET
 		>;
 		};
 
