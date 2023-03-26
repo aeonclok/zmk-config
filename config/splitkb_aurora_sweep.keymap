@@ -8,6 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define AS(keycode) &as LS(keycode) keycode
+
 &mt {
   //  flavor = "tap-preferred";
    // tapping_term_ms = <200>;
@@ -15,15 +17,69 @@
 
 / { 
 
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+        
+         combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11>;
+            bindings = <&kp TAB>;
+        };
+        
+            combo_ralt {
+            timeout-ms = <50>;
+            key-positions = <17 16>;
+            bindings = <&kp RALT>;
+        };
+        
+                    combo_lalt {
+            timeout-ms = <50>;
+            key-positions = <11 12>;
+            bindings = <&kp LALT>;
+        };
+        
+                           combo_lgui {
+            timeout-ms = <50>;
+            key-positions = <12 13>;
+            bindings = <&kp LGUI>;
+        };
+        
+        
+       combo_rgui {
+            timeout-ms = <50>;
+            key-positions = <17 18>;
+            bindings = <&kp RGUI>;
+        };
+        
+
+        
+    };
+
+    behaviors {
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "AUTO_SHIFT";
+            #binding-cells = <2>;
+            tapping_term_ms = <175>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+    };
 
     keymap {
                 compatible = "zmk,keymap";
 
        	default_layer {
 		bindings = <
-        &kp Q &kp D &kp J &kp P &kp G 						&kp F &kp R &kp U &kp Y &kp SEMI 
-		&kp A &kp L &kp S &kp T &kp K 			        	&kp H &kp N &kp E &kp I &kp O
-		&mt LSFT Z &kp X &kp C &kp V &kp B				    &kp W &kp M  &kp QUOT &kp DOT &mt LSFT RET
+		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U)    AS(Y)   AS(SEMI) 
+		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	        AS(H) AS(N) AS(E) AS(I) AS(O)
+		AS(Z) AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &mt LSFT RET
           				&lt 1 TAB &kp BSPC  				&kp SPC &lt 2 RET
 		>;
 		};
