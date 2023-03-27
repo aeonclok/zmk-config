@@ -39,7 +39,7 @@
 
         combo_toggle_win_mac {
             timeout-ms = <50>;
-            key-positions = <30 31 32 34>;
+            key-positions = <30 31 32 33>;
             layers = <BASE BASE_MAC>;
             bindings = <&tog BASE_MAC>;
         };
