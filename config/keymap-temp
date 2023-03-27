@@ -10,6 +10,13 @@
 
 #define AS(keycode) &as LS(keycode) keycode
 
+#define KEYS_L 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
+#define KEYS_R 5 6 7 8 9 15 16 17 18 19 25 26 27 28 29
+#define KEYS_T 30 31 32 34  
+
+#define HM_TAPPING_TERM 300
+#define HM_TAPPING_TERM_FAST 200
+
 &mt {
   //  flavor = "tap-preferred";
    // tapping_term_ms = <200>;
@@ -113,6 +120,99 @@
     };
 
     behaviors {
+
+        // Positional Homerow mods
+        // Homerow mods that prevent accidental activations when rolling keys,
+        // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
+        // qwerty.
+        //
+        // Works by only allowing a mod to activate within tapping-term if
+        // it's on the opposite side of the keyboard or on the same side thumb
+        // keys.
+
+        // Further optimization using urob's timerless homerow mods method:
+        // https://github.com/urob/zmk-config#timeless-homerow-mods
+        hm_l: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT";
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick-tap-ms = <175>;                // repeat on tap-into-hold
+            global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            hold-trigger-on-release;             // requires PR #1423
+        };
+
+        hm_r: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick_tap_ms = <175>;
+            global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            hold-trigger-on-release;             // requires PR #1423
+        };
+
+
+        // Positional Homerow mods for shift
+        // Use faster tapping term and disable some features that may
+        // cause false negatives.
+        hm_shift_l: hm_shift_l {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_FAST_LEFT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+            quick_tap_ms = <175>;
+            // global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_R KEYS_T>;
+            // hold-trigger-on-release;             // requires PR #1423
+        };
+
+        hm_shift_r: hm_shift_r {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_FAST_RIGHT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
+            quick_tap_ms = <175>;
+            // global-quick-tap-ms = <150>;         // requires PR #1387
+            hold-trigger-key-positions = <KEYS_L KEYS_T>;
+            // hold-trigger-on-release;             // requires PR #1423
+        };
+
+        /*
+         * Non-Positional Homerow Mods
+         * Used for &mm_grescm_gui behavior on left hand.
+         *
+         * Usage: &hm LSHFT T
+         * Tap: T
+         * Tap-Tap-Hold: Repeat T
+         * Hold: LSHIFT
+         */
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "balanced";
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            quick_tap_ms = <200>;
+        };
+
+
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "AUTO_SHIFT";
@@ -129,9 +229,9 @@
 
        	default_layer {
 		bindings = <
-		AS(Q) AS(D) AS(J) AS(P) AS(G) 						AS(F) AS(R)  AS(U) AS(Y) AS(SEMI) 
-		AS(A) AS(L) AS(S) AS(T) AS(K) 			        	AS(H) AS(N) AS(E) AS(I) AS(O)
-		AS(Z) AS(X) AS(C) AS(V) AS(B)				        AS(W) AS(M)  AS(QUOT) &kp DOT &kp COMMA
+        &kp Q &kp D &kp J &kp P &kp G 						&kp F &kp R  &kp U    &kp Y   &kp SEMI 
+		&hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S &hm_shift_l LSHFT T &kp K       &kp H  &hm_shift_r RSHFT N &hm_r RGUI E &hm_r RALT I &hm_r RCTRL O
+		&mt LSFT Z &kp X &kp C &kp V &kp B				        &kp W &kp M  &kp QUOT &kp DOT &mt LSFT RET
           			&lt 1 TAB &kp BSPC  				    &kp SPC &lt 2 RET
 		>;
 		};
