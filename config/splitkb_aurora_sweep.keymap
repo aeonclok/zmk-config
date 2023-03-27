@@ -20,8 +20,8 @@
 #define KEYS_T 30 31 32 34  
 
 
-#define COMBO_TERM_FAST 35
-#define COMBO_TERM_SLOW 40
+#define COMBO_TERM_FAST 40
+#define COMBO_TERM_SLOW 50
 #define COMBO_GLOBAL_QUICKTAP 100
 
 #define HM_TAPPING_TERM 300
@@ -119,7 +119,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE>;
             key-positions = <13 14>;
-            bindings = <&kp BSLH>;
+            bindings = <&kp NON_US_BSLH>;
         };
 
         combo_bracket_angled_r_win {
@@ -127,7 +127,7 @@
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE>;
             key-positions = <15 16>;
-            bindings = <&kp LS(BSLH)>;
+            bindings = <&kp LS(NON_US_BSLH)>;
         };
 
         combo_bracket_angled_l_mac {
