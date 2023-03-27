@@ -49,14 +49,14 @@
             key-positions = <0 1>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp ESC>;
-        };-
+        };
 
         combo_question {
             timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <17 18>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(MINUS)>;
-        };sl
+        };
 
         combo_exclamation {
             timeout-ms = <COMBO_TERM_SLOW>;
