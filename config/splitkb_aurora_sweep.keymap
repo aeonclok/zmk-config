@@ -40,21 +40,21 @@
         combo_toggle_win_mac {
             timeout-ms = <50>;
             key-positions = <30 31 32 34>;
-            layers = <BASE BASE_MAC>
+            layers = <BASE BASE_MAC>;
             bindings = <&tog BASE_MAC>;
         };
 
         combo_esc {
             timeout-ms = <50>;
             key-positions = <0 1>;
-            layers = <BASE BASE_MAC>
+            layers = <BASE BASE_MAC>;
             bindings = <&kp ESC>;
         };
 
         combo_bracket_round_l {
             timeout-ms = <COMBO_TERM_FAST>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>
+            layers = <BASE BASE_MAC>;
             key-positions = <12 13>;
             bindings = <&kp LS(NUMBER_8)>;
         };
@@ -62,7 +62,7 @@
         combo_bracket_round_r {
             timeout-ms = <COMBO_TERM_FAST>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-
+            layers = <BASE BASE_MAC>;
             key-positions = <16 17>;
             bindings = <&kp LS(NUMBER_9)>;
         };
@@ -70,7 +70,7 @@
         combo_bracket_square_l {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>
+            layers = <BASE BASE_MAC>;
             key-positions = <22 23>;
             bindings = <&kp RA(NUMBER_8)>;
         };
@@ -78,7 +78,7 @@
         combo_bracket_square_r {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>
+            layers = <BASE BASE_MAC>;
             key-positions = <26 27>;
             bindings = <&kp RA(NUMBER_9)>;
         };
@@ -86,7 +86,7 @@
         combo_bracket_curly_l_mac {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>
+            layers = <BASE_MAC>;
             key-positions = <2 3>;
             bindings = <&kp LA(LS(NUMBER_8))>;
         };
@@ -94,14 +94,14 @@
         combo_bracket_curly_r_mac {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>
+            layers = <BASE_MAC>;
             key-positions = <6 7>;
             bindings = <&kp LA(LS(NUMBER_9))>;
         };
         combo_bracket_curly_l_win {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>
+            layers = <BASE>;
             key-positions = <2 3>;
             bindings = <&kp RA(NUMBER_7)>;
         };
@@ -109,7 +109,7 @@
         combo_bracket_curly_r_win {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>
+            layers = <BASE>;
             key-positions = <6 7>;
             bindings = <&kp RA(NUMBER_0)>;
         };
@@ -117,7 +117,7 @@
         combo_bracket_angled_l_win {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>
+            layers = <BASE>;
             key-positions = <13 14>;
             bindings = <&kp BSLH>;
         };
@@ -125,7 +125,7 @@
         combo_bracket_angled_r_win {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>
+            layers = <BASE>;
             key-positions = <15 16>;
             bindings = <&kp LS(BSLH)>;
         };
@@ -133,7 +133,7 @@
         combo_bracket_angled_l_mac {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>
+            layers = <BASE_MAC>;
             key-positions = <13 14>;
             bindings = <&kp GRAVE>;
         };
@@ -141,7 +141,7 @@
         combo_bracket_angled_r_mac {
             timeout-ms = <COMBO_TERM_SLOW>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>
+            layers = <BASE_MAC>;
             key-positions = <15 16>;
             bindings = <&kp LS(GRAVE)>;
         };
