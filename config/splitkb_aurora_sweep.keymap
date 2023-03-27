@@ -62,7 +62,7 @@
             timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <11 12>;
             layers = <BASE BASE_MAC>;
-            bindings = <&kp LS(NUMBER_8)>;
+            bindings = <&kp LS(NUMBER_1)>;
         };
 
         combo_minus {
