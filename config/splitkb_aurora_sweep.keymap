@@ -93,6 +93,13 @@
             bindings = <&kp BACKSLASH>;
         };
 
+        combo_slash {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <17 18>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(NUMBER_7)>;
+        };
+
         combo_bracket_round_l {
             timeout-ms = <COMBO_TERM_FAST>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
