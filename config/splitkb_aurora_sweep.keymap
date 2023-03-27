@@ -12,9 +12,9 @@
 #define BASE_MAC 1
 
 // % ~ 
-//     esc  @   {   !!€          #  }   /  " 
+//     esc  @   {   €          #  }   /  " 
 //      =  !   (   <             >   )   ?   '
-//      !!\  !!^  [   !!$          !!&  ]   !!+  -
+//      !!\  !!^  [   !!$          &  ]   +  -
 
 #define AS(keycode) &as LS(keycode) keycode
 
@@ -61,6 +61,13 @@
             bindings = <&kp LS(MINUS)>;
         };
 
+        combo_and {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <15 16>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(NUMBER_6)>;
+        };
+
         combo_equals {
             timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <10 11>;
@@ -75,6 +82,13 @@
             bindings = <&kp LS(NUMBER_3)>;
         };
 
+        combo_euro {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <3 4>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(NUMBER_4)>;
+        };
+
         combo_exclamation {
             timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <11 12>;
@@ -87,6 +101,13 @@
             key-positions = <28 29>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp SLASH>;
+        };
+
+        combo_plus {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <27 28>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp MINUS>;
         };
 
         combo_at {
