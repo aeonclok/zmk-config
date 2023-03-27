@@ -38,17 +38,52 @@
         compatible = "zmk,combos";
 
         combo_toggle_win_mac {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <30 31 32 33>;
             layers = <BASE BASE_MAC>;
             bindings = <&tog BASE_MAC>;
         };
 
         combo_esc {
-            timeout-ms = <50>;
+            timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <0 1>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp ESC>;
+        };-
+
+        combo_question {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <17 18>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(MINUS)>;
+        };sl
+
+        combo_exclamation {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <11 12>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(NUMBER_8)>;
+        };
+
+        combo_minus {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <28 29>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp SLASH>;
+        };
+
+        combo_at {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <1 2>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp RA(NUMBER_2)>;
+        };
+
+        combo_doublequote {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <8 9>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(NUMBER_2)>;
         };
 
         combo_bracket_round_l {
