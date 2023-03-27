@@ -86,6 +86,13 @@
             bindings = <&kp LS(NUMBER_2)>;
         };
 
+        combo_singlequote {
+            timeout-ms = <COMBO_TERM_SLOW>;
+            key-positions = <18 19>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp BACKSLASH>;
+        };
+
         combo_bracket_round_l {
             timeout-ms = <COMBO_TERM_FAST>;
             global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
