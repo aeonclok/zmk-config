@@ -354,9 +354,9 @@
        	default_layer_win{
 		bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                &kp Q       &kp D           &kp J           &kp P       &kp G 				&kp F        &kp R         &kp U         &kp Y       &kp SEMI 
+                &kp Q     &hm_l RALT D     &kp J           &kp P       &kp G 				&kp F        &kp R         &kp U      &hm_r RALT Y       &kp SEMI 
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &hm_l LCTRL A  &hm_l RALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r RALT I &hm_r RCTRL O
+            &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 		      &mt LSFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp QUOT       &kp DOT       &kp COMMA
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
@@ -368,9 +368,9 @@
         default_layer_mac {
 		bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                &kp Q       &kp D           &kp J           &kp P       &kp G 				&kp F        &kp R         &kp U         &kp Y       &kp SEMI 
+                &kp Q     &hm_l RALT D      &kp J           &kp P       &kp G 				&kp F        &kp R         &kp U     &hm_r RALT Y   &kp SEMI 
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-            &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r RALT I &hm_r RCTRL O
+            &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 		      &mt LSFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp QUOT       &kp DOT       &kp COMMA
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
