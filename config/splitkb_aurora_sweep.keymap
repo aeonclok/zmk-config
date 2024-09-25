@@ -55,7 +55,7 @@
 
         combo_question {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <17 18>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(MINUS)>;
@@ -63,7 +63,7 @@
 
         combo_and {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <25 26>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(NUMBER_6)>;
@@ -71,7 +71,7 @@
 
         combo_equals {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <10 11>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(NUMBER_0)>;
@@ -79,7 +79,7 @@
 
         combo_hashtag {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <5 6>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(NUMBER_3)>;
@@ -87,7 +87,7 @@
 
         combo_euro_mac {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <3 4>;
             layers = <BASE_MAC>;
             bindings = <&kp LS(NUMBER_4)>;
@@ -95,7 +95,7 @@
 
         combo_euro_win {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <3 4>;
             layers = <BASE>;
             bindings = <&kp LA(E)>;
@@ -103,7 +103,7 @@
 
         combo_exclamation {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <11 12>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(NUMBER_1)>;
@@ -111,7 +111,7 @@
 
         combo_minus {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <28 29>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp SLASH>;
@@ -119,7 +119,7 @@
 
         combo_plus {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <27 28>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp MINUS>;
@@ -127,7 +127,7 @@
 
         combo_at {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <1 2>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp RA(NUMBER_2)>;
@@ -135,7 +135,7 @@
 
         combo_doublequote {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <8 9>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(NUMBER_2)>;
@@ -143,7 +143,7 @@
 
         combo_singlequote {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <18 19>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp BACKSLASH>;
@@ -151,7 +151,7 @@
 
         combo_slash {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <7 8>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp LS(NUMBER_7)>;
@@ -159,7 +159,7 @@
 
         combo_bracket_round_l {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE BASE_MAC>;
             key-positions = <12 13>;
             bindings = <&kp LS(NUMBER_8)>;
@@ -167,7 +167,7 @@
 
         combo_bracket_round_r {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE BASE_MAC>;
             key-positions = <16 17>;
             bindings = <&kp LS(NUMBER_9)>;
@@ -175,7 +175,7 @@
 
         combo_bracket_square_l {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE BASE_MAC>;
             key-positions = <22 23>;
             bindings = <&kp RA(NUMBER_8)>;
@@ -183,7 +183,7 @@
 
         combo_bracket_square_r {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE BASE_MAC>;
             key-positions = <26 27>;
             bindings = <&kp RA(NUMBER_9)>;
@@ -191,7 +191,7 @@
 
         combo_bracket_curly_l_mac {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE_MAC>;
             key-positions = <2 3>;
             bindings = <&kp LA(LS(NUMBER_8))>;
@@ -199,14 +199,14 @@
 
         combo_bracket_curly_r_mac {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE_MAC>;
             key-positions = <6 7>;
             bindings = <&kp LA(LS(NUMBER_9))>;
         };
         combo_bracket_curly_l_win {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE>;
             key-positions = <2 3>;
             bindings = <&kp RA(NUMBER_7)>;
@@ -214,7 +214,7 @@
 
         combo_bracket_curly_r_win {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE>;
             key-positions = <6 7>;
             bindings = <&kp RA(NUMBER_0)>;
@@ -222,7 +222,7 @@
 
         combo_bracket_angled_l_win {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE>;
             key-positions = <13 14>;
             bindings = <&kp NON_US_BSLH>;
@@ -230,7 +230,7 @@
 
         combo_bracket_angled_r_win {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE>;
             key-positions = <15 16>;
             bindings = <&kp LS(NON_US_BSLH)>;
@@ -238,7 +238,7 @@
 
         combo_bracket_angled_l_mac {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE_MAC>;
             key-positions = <13 14>;
             bindings = <&kp GRAVE>;
@@ -246,7 +246,7 @@
 
         combo_bracket_angled_r_mac {
             timeout-ms = <COMBO_TERM_FAST>;
-            global-quick-tap-ms = <COMBO_GLOBAL_QUICKTAP>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE_MAC>;
             key-positions = <15 16>;
             bindings = <&kp LS(GRAVE)>;
@@ -274,7 +274,7 @@
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
-            global-quick-tap-ms = <150>;         // requires PR #1387
+            require-prior-idle-ms = <150>;         // requires PR #1387
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             hold-trigger-on-release;             // requires PR #1423
         };
@@ -287,7 +287,7 @@
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick_tap_ms = <175>;
-            global-quick-tap-ms = <150>;         // requires PR #1387
+            require-prior-idle-ms = <150>;         // requires PR #1387
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;             // requires PR #1423
         };
@@ -304,7 +304,7 @@
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick_tap_ms = <175>;
-            // global-quick-tap-ms = <150>;         // requires PR #1387
+            // require-prior-idle-ms = <150>;         // requires PR #1387
             hold-trigger-key-positions = <KEYS_R KEYS_T>;
             // hold-trigger-on-release;             // requires PR #1423
         };
@@ -317,7 +317,7 @@
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick_tap_ms = <175>;
-            // global-quick-tap-ms = <150>;         // requires PR #1387
+            // require-prior-idle-ms = <150>;         // requires PR #1387
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             // hold-trigger-on-release;             // requires PR #1423
         };
