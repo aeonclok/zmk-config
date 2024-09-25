@@ -268,7 +268,6 @@
         // https://github.com/urob/zmk-config#timeless-homerow-mods
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_LEFT";
             #binding-cells = <2>;
             bindings = <&kp>,  <&kp>;
 
@@ -282,7 +281,6 @@
 
         hm_r: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_RIGHT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
@@ -300,7 +298,6 @@
         // cause false negatives.
         hm_ls: hm_ls {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_FAST_LEFT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
@@ -314,7 +311,6 @@
 
         hm_rs: hm_rs {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_FAST_RIGHT";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
@@ -337,7 +333,6 @@
          */
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
@@ -358,9 +353,9 @@
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-		      &mt LSFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp QUOT       &kp DOT       &kp COMMA
+		      &mt LSHIFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-          			                                    &lt 2 TAB     &lt 2 BSPC  		 &lt 3 SPC     &lt 3 RET	
+          			                                    &lt 2 TAB     &lt 2 BSPC  		 &lt 3 SPACE     &lt 3 RET	
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
 		>;
 		};       	
@@ -372,9 +367,9 @@
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-		      &mt LSFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp QUOT       &kp DOT       &kp COMMA
+		      &mt LSHIFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-          			                                    &lt 2 TAB     &lt 2 BSPC  		 &lt 3 SPC     &lt 3 RET	
+          			                                    &lt 2 TAB     &lt 2 BSPC  		 &lt 3 SPACE     &lt 3 RET	
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
 		>;
 		};
@@ -382,11 +377,11 @@
        	left_layer {
 		bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-		       &trans         &trans        &trans       &trans        &trans              &trans      &kp NUM_7     &kp NUM_8     &kp NUM_9      &trans
+		       &trans         &trans        &trans       &trans        &trans              &trans      &kp N7     &kp N8     &kp N9      &trans
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &trans         &trans        &trans       &trans        &trans              &trans      &kp NUM_4     &kp NUM_5     &kp NUM_6      &trans
+               &trans         &trans        &trans       &trans        &trans              &trans      &kp N4     &kp N5     &kp N6      &trans
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &trans         &trans        &trans       &trans        &trans            &kp NUM_0     &kp NUM_1     &kp NUM_2     &kp NUM_3      &trans
+               &trans         &trans        &trans       &trans        &trans            &kp N0     &kp N1     &kp N2     &kp N3      &trans
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
 					                                     &mo 2         &kp LGUI  		  &kp RGUI       &mo 4 
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
@@ -402,7 +397,7 @@
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &trans         &trans        &trans       &trans        &trans              &trans       &trans        &trans        &trans        &trans
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-					                                      &mo 4       &kp LCTL  		   &kp SPC       &mo 3 
+					                                      &mo 4       &kp LCTRL  		   &kp SPACE       &mo 3 
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
 		>;
 		};	
@@ -410,7 +405,7 @@
 		tri_layer {
 		bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-		        &kp NUM_1   &kp NUM_2     &kp NUM_3    &kp NUM_4    &kp NUM_5 			&bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
+		        &kp N1   &kp N2     &kp N3    &kp N4    &kp N5 			&bt BT_SEL 1 &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 		        &kp F1      &kp F2          &kp F3      &kp F4         &kp F5  			   &trans       &kp PG_UP  &kp K_VOL_UP    &kp K_MUTE     &trans 
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
