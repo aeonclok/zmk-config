@@ -78,7 +78,7 @@
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <21 22>;
             layers = <BASE BASE_MAC>;
-            bindings = <&kp SEMICOLON>;
+            bindings = <&kp RA(RIGHT_BRACKET)>;
         };
 
         combo_percent {
@@ -413,7 +413,7 @@
        	default_layer_win{
 		bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                &kp Q     &hm_l RALT D     &kp J           &kp P       &kp G 				&kp F        &kp R         &kp U      &hm_r RALT Y       &kp SEMI 
+                &kp Q     &hm_l RALT D     &kp J           &kp P       &kp G 				&kp F        &kp R         &kp U      &hm_r RALT Y    &kp SEMI 
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
