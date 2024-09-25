@@ -11,10 +11,16 @@
 #define BASE 0
 #define BASE_MAC 1
 
-// % 
+// 
 //     esc  @   {   €          #  }   /  " 
 //      =  !   (   <             >   )   ?   '/*
-//      !!\  !!^/~  [  !!$          &  ]   +/\  -/_
+//      %  ~  [  !!$          &  ]   +/\  -/_
+
+// 0  1  2  3  4    6  7  8  9  10
+// 10 11 12 13 14   15 16 17 18 19
+// 20 21 22 23 24   25 26 27 28 29
+//          30 31   32 33 
+
 
 #define AS(keycode) &as LS(keycode) keycode
 
@@ -34,10 +40,45 @@
    // tapping_term_ms = <200>;
 };
 
-/ { 
+/ {     
+    macros {
+        tilde_with_space: macro {
+            label = "Tilde with Space";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp RALT(SEMICOLON)  
+                &kp SPACE           
+            >;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
+
+        combo_dollar {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
+            key-positions = <23 24>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp RALT(NUMBER_4)>;
+        };
+
+        combo_tilde {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
+            key-positions = <21 21>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&tilde_with_space>;
+        };
+
+        combo_percent {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
+            key-positions = <21 21>;
+            layers = <BASE BASE_MAC>;
+            bindings = <&kp LS(NUMBER_5)>;
+        };
 
         combo_toggle_win_mac {
             timeout-ms = <COMBO_TERM_SLOW>;
@@ -379,7 +420,7 @@
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 		       &kp N1         &kp N2        &kp N3       &kp N4        &kp N5              &kp N6        &kp N7        &kp N8        &kp N9       &kp N0
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-		       &kp N1         &kp N2        &kp N3       &kp N4        &kp N5              &kp N6        &kp N7        &kp N8        &kp N9       &kp N0
+		   &hm_l LCTRL N1 &hm_l LALT N2 &hm_l LGUI N3 &hm_ls LSHFT N4     &kp N5           &kp N6   &hm_rs RSHFT N7 &hm_r RGUI N8 &hm_r LALT N9 &hm_r RCTRL N0
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
                &trans         &trans        &trans       &trans        &trans            &trans         &trans          &trans         &trans      &trans
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
