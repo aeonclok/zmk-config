@@ -78,7 +78,7 @@
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <21 22>;
             layers = <BASE BASE_MAC>;
-            bindings = <&kp RA(SEMICOLON)>;
+            bindings = <&kp SEMICOLON>;
         };
 
         combo_percent {
