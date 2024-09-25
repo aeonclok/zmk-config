@@ -37,6 +37,16 @@
 };
 
 / {
+    // macros {
+    //     tilde_with_space: tilde_with_space {
+    //         compatible = "zmk,behavior-macro";
+    //         #binding-cells = <0>;
+    //         bindings
+    //             = <&macro_tap &kp RALT(SEMICOLON)>  // Press Alt+Semicolon
+    //             , <&macro_tap &kp SPACE>              // Then tap Space
+    //             ;
+    //     };
+    // };
 
     combos {
         compatible = "zmk,combos";
@@ -54,7 +64,7 @@
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <21 21>;
             layers = <BASE BASE_MAC>;
-            bindings = <&tilde_with_space>;
+            bindings = <&kp RALT(SEMICOLON)>;
         };
 
         combo_percent {
@@ -281,15 +291,6 @@
 
     behaviors {
 
-        tilde_with_space: tilde_with_space {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings
-                = <&macro_tap &kp RALT(SEMICOLON)>  // Press Alt+Semicolon
-                , <&macro_tap &kp SPACE>              // Then tap Space
-                ;
-        };
-        
         // Positional Homerow mods
         // Homerow mods that prevent accidental activations when rolling keys,
         // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
