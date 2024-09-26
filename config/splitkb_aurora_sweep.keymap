@@ -64,6 +64,9 @@ combo_##_name_ {                                                \
 // 20 21 22 23 24   25 26 27 28 29
 //          30 31   32 33 
 
+
+
+
     combos {
         compatible = "zmk,combos";
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
@@ -188,21 +191,48 @@ combo_##_name_ {                                                \
         };
     };
 
-    //      Q   D   J   P   G       F   R   U   Y   0
-    //      A   L   S   T   K       H   N   E   I   O  
-    //      Z   X   C   V   B       w   M   Ä  .:  ,; 
-    // 
-    //      esc   @    {     €          #    }    /   ` 
-    //                                  ^    "    |\
-    //      =     !    (     <          >    )    ?   '*
-    //
-    //      %     ~    [     $          &    ]   +\   -_
-    //
-    //
-    //      CTRL ALT SHIFT                 SHIFT ALT CTRL  
-    // 
-    //                TAB    <-         SPACE ENTER
-    // 
+
+// 
+// 
+//      COMBOS:
+// 
+//      esc   @    {     €          #    }    /   " 
+//      =     !    (     <          >    )    ?   '*
+//      %     ~    [     $          &    ]   +\   -_
+// 
+//      Home Row Mods:
+//
+//      CTRL ALT SHIFT                 SHIFT ALT CTRL    
+// 
+// 
+//      DEFAULT LAYER:
+// 
+//      Q   D   J   P   G        F   R   U   Y   Ö 
+//      A   L   S   T   K        H   N   E   I   O 
+//      Z   X   C   V   B        W   M   Ä  .:  ,;
+//                 TAB   <-   SPACE ENTER
+// 
+// 
+//      DEFAULT LAYER:
+// 
+//      Q   D   J   P   G        F   R   U   Y   Ö 
+//      A   L   S   T   K        H   N   E   I   O 
+//      Z   X   C   V   B        W   M   Ä  .:  ,;
+//                 TAB   <-   SPACE ENTER
+// 
+// 
+//      LEFT LAYER:
+// 
+//      1   2   3   4   5        6   7   8   9   0 
+//      1   2   3   4   5        6   7   8   9   0
+//      -   -   -   -   -        -   -   -   -   -
+//                 2L  LGUI     RGUI 4L
+// 
+// 
+//         
+// 
+
+
 
 
     keymap {
