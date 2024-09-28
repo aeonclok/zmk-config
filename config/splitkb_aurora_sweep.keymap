@@ -298,6 +298,23 @@ _name_: _name_##_macro {                   \
             key-positions = <15 16>;
             bindings = <&kp LS(GRAVE)>;
         };
+
+        combo_pipe_mac {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
+            layers = <BASE_MAC>;
+            key-positions = <15 16>;
+            bindings = <&kp RA(NUMBER_7)>;
+        };
+
+        combo_pipe_win {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
+            layers = <BASE_MAC>;
+            key-positions = <15 16>;
+            bindings = <&kp RA(NON_US_BSLH)>;
+        };
+
     };
 
     behaviors {
@@ -392,13 +409,13 @@ _name_: _name_##_macro {                   \
     // 
     // 
     //      esc   @    {     €          #    }    /   ` 
-    //                                       "
+    //                                       "    |
     //      =     !    (     <          >    )    ?   '*
     //
     //      %     ~    [     $          &    ]   +\   -_
     //
     // 
-    //      CTRL ALT SHIFT                 SHIFT ALT CTRL    
+    //      CTRL ALT SHIFT                 SHIFT ALT CTRL  
     // 
     //                TAB    <-         SPACE ENTER
     // 
