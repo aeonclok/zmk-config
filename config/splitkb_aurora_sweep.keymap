@@ -8,8 +8,8 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define BASE 0
-#define BASE_MAC 1
+#define WIN 0
+#define MAC 1
 
 
 #define AS(keycode) &as LS(keycode) keycode
@@ -38,6 +38,8 @@ _name_: _name_##_macro {                   \
 / {
     macros {
         MACRO(backtick,  &kp LS(EQUAL) &kp SPACE)
+        MACRO(caret,  &kp LS(RIGHT_BRACKET) &kp SPACE) 
+        MACRO(tilde, &kp RA(RIGHT_BRACKET) %kp SPACE)
     };
 };
 
@@ -50,6 +52,15 @@ _name_: _name_##_macro {                   \
 //          30 31   32 33 
 
 
+// #define COMBO(_name_, _bindings_, _key_positions_) \
+// combo_##_name_ {                                   \
+//     timeout-ms            = <30>;                  \
+//     require-prior-idle-ms = <COMBO_IDLE_MS>;       \
+//     bindings              = <_bindings_>;          \
+//     key-positions         = <_key_positions_>;     \
+//     layers                = <0 1>;                 \
+// };
+
 
     combos {
         compatible = "zmk,combos";
@@ -58,15 +69,15 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <23 24>;
-            layers = <BASE BASE_MAC>;
-            bindings = <&kp RA(NUMBER_4)>;
+            layers = <WIN MAC>;
+            bindings = <&kp RA(NUMBER_4)>
         };
 
         combo_backtick {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <8 9>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&backtick>;
         };
 
@@ -74,29 +85,29 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <21 22>;
-            layers = <BASE BASE_MAC>;
-            bindings = <&kp RA(RIGHT_BRACKET)>;
+            layers = <WIN MAC>;
+            bindings = <&tilde>;
         };
 
         combo_percent {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <20 21>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_5)>;
         };
 
         combo_toggle_win_mac {
             timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <30 31 32 33>;
-            layers = <BASE BASE_MAC>;
-            bindings = <&tog BASE_MAC>;
+            layers = <WIN MAC>;
+            bindings = <&tog MAC>;
         };
 
         combo_esc {
             timeout-ms = <COMBO_TERM_SLOW>;
             key-positions = <0 1>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp ESC>;
         };
 
@@ -104,7 +115,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <17 18>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(MINUS)>;
         };
 
@@ -112,7 +123,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <25 26>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_6)>;
         };
 
@@ -120,7 +131,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <10 11>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_0)>;
         };
 
@@ -128,7 +139,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <5 6>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_3)>;
         };
 
@@ -136,7 +147,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <3 4>;
-            layers = <BASE_MAC>;
+            layers = <MAC>;
             bindings = <&kp LS(NUMBER_4)>;
         };
 
@@ -144,7 +155,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <3 4>;
-            layers = <BASE>;
+            layers = <WIN>;
             bindings = <&kp LA(E)>;
         };
 
@@ -152,7 +163,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <11 12>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_1)>;
         };
 
@@ -160,7 +171,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <28 29>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp SLASH>;
         };
 
@@ -168,7 +179,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <27 28>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp MINUS>;
         };
 
@@ -176,7 +187,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <1 2>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp RA(NUMBER_2)>;
         };
 
@@ -184,7 +195,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <16 7>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_2)>;
         };
 
@@ -192,7 +203,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <18 19>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp BACKSLASH>;
         };
 
@@ -200,14 +211,14 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <7 8>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             bindings = <&kp LS(NUMBER_7)>;
         };
 
         combo_bracket_round_l {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             key-positions = <12 13>;
             bindings = <&kp LS(NUMBER_8)>;
         };
@@ -215,7 +226,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_round_r {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             key-positions = <16 17>;
             bindings = <&kp LS(NUMBER_9)>;
         };
@@ -223,7 +234,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_square_l {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             key-positions = <22 23>;
             bindings = <&kp RA(NUMBER_8)>;
         };
@@ -231,7 +242,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_square_r {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE BASE_MAC>;
+            layers = <WIN MAC>;
             key-positions = <26 27>;
             bindings = <&kp RA(NUMBER_9)>;
         };
@@ -239,7 +250,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_curly_l_mac {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>;
+            layers = <MAC>;
             key-positions = <2 3>;
             bindings = <&kp LA(LS(NUMBER_8))>;
         };
@@ -247,14 +258,14 @@ _name_: _name_##_macro {                   \
         combo_bracket_curly_r_mac {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>;
+            layers = <MAC>;
             key-positions = <6 7>;
             bindings = <&kp LA(LS(NUMBER_9))>;
         };
         combo_bracket_curly_l_win {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>;
+            layers = <WIN>;
             key-positions = <2 3>;
             bindings = <&kp RA(NUMBER_7)>;
         };
@@ -262,7 +273,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_curly_r_win {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>;
+            layers = <WIN>;
             key-positions = <6 7>;
             bindings = <&kp RA(NUMBER_0)>;
         };
@@ -270,7 +281,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_angled_l_win {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>;
+            layers = <WIN>;
             key-positions = <13 14>;
             bindings = <&kp NON_US_BSLH>;
         };
@@ -278,7 +289,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_angled_r_win {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>;
+            layers = <WIN>;
             key-positions = <15 16>;
             bindings = <&kp LS(NON_US_BSLH)>;
         };
@@ -286,7 +297,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_angled_l_mac {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>;
+            layers = <MAC>;
             key-positions = <13 14>;
             bindings = <&kp GRAVE>;
         };
@@ -294,7 +305,7 @@ _name_: _name_##_macro {                   \
         combo_bracket_angled_r_mac {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>;
+            layers = <MAC>;
             key-positions = <15 16>;
             bindings = <&kp LS(GRAVE)>;
         };
@@ -302,7 +313,7 @@ _name_: _name_##_macro {                   \
         combo_pipe_mac {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>;
+            layers = <MAC>;
             key-positions = <7 18>;
             bindings = <&kp RA(NUMBER_7)>;
         };
@@ -310,10 +321,19 @@ _name_: _name_##_macro {                   \
         combo_pipe_win {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE>;
+            layers = <WIN>;
             key-positions = <7 18>;
             bindings = <&kp RA(NON_US_BSLH)>;
         };
+
+        combo_caret {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
+            layers = <WIN MAC>;
+            key-positions = <15 6>;
+            bindings = <&caret>;
+        };
+
 
     };
 
@@ -406,15 +426,17 @@ _name_: _name_##_macro {                   \
         };
     };
 
-    // 
+    //      Q   D   J   P   G       F   R   U   Y   0
+    //      A   L   S   T   K       H   N   E   I   O  
+    //      Z   X   C   V   B       w   M   Ä  .:  ,; 
     // 
     //      esc   @    {     €          #    }    /   ` 
-    //                                       "    |
+    //                                  ^    "    |
     //      =     !    (     <          >    )    ?   '*
     //
     //      %     ~    [     $          &    ]   +\   -_
     //
-    // 
+    //
     //      CTRL ALT SHIFT                 SHIFT ALT CTRL  
     // 
     //                TAB    <-         SPACE ENTER
