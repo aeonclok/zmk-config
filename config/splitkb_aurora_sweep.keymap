@@ -41,7 +41,7 @@ _name_: _name_##_macro {                   \
     };
 };
 
-/ {
+/ {uiui||||||||||||
 
 
 // 0  1  2  3  4    5  6  7  8  9
@@ -310,7 +310,7 @@ _name_: _name_##_macro {                   \
         combo_pipe_win {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
-            layers = <BASE_MAC>;
+            layers = <BASE>;
             key-positions = <7 18>;
             bindings = <&kp RA(NON_US_BSLH)>;
         };
