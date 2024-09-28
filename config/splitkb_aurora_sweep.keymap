@@ -113,8 +113,8 @@ combo_##_name_ {                                                \
         // https://github.com/urob/zmk-config#timeless-homerow-mods
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2, &kp>, <&kp>;
-
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <175>;                // repeat on tap-into-hold
@@ -125,8 +125,8 @@ combo_##_name_ {                                                \
 
         hm_r: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2, &kp>, <&kp>;
-
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick_tap_ms = <175>;
@@ -141,8 +141,8 @@ combo_##_name_ {                                                \
         // cause false negatives.
         hm_ls: hm_ls {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2, &kp>, <&kp>;
-
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick_tap_ms = <175>;
@@ -153,8 +153,8 @@ combo_##_name_ {                                                \
 
         hm_rs: hm_rs {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2, &kp>, <&kp>;
-
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick_tap_ms = <175>;
@@ -174,8 +174,8 @@ combo_##_name_ {                                                \
          */
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2, &kp>, <&kp>;
-
+            #binding-cells = <2>;
+            bindings = <&kp>,  <&kp>;
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick_tap_ms = <200>;
@@ -187,7 +187,7 @@ combo_##_name_ {                                                \
     //      Z   X   C   V   B       w   M   Ä  .:  ,; 
     // 
     //      esc   @    {     €          #    }    /   ` 
-    //                                  ^    "    |
+    //                                  ^    "    |\
     //      =     !    (     <          >    )    ?   '*
     //
     //      %     ~    [     $          &    ]   +\   -_
