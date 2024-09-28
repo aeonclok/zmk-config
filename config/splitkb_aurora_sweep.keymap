@@ -25,6 +25,26 @@
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
 
+
+#define MACRO(_name_, _bindings_)          \
+_name_: _name_##_macro {                   \
+    compatible     = "zmk,behavior-macro"; \
+    #binding-cells = <0>;                  \
+    tap-ms         = <1>;                  \
+    wait-ms        = <1>;                  \
+    bindings       = <_bindings_>;         \
+};
+
+/ {
+    macros {
+        MACRO(backtick,  &kp LS(EQUAL) &kp SPACE)
+    };
+};
+
+
+
+
+
 &mt {
   //  flavor = "tap-preferred";
    // tapping_term_ms = <200>;
@@ -78,7 +98,7 @@
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <8 9>;
             layers = <BASE BASE_MAC>;
-            bindings = <&kp LS(EQUAL)>;
+            bindings = <&backtick>;
         };
 
         combo_tilde {
