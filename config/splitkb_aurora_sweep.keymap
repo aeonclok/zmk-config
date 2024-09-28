@@ -303,7 +303,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE_MAC>;
-            key-positions = <15 16>;
+            key-positions = <7 18>;
             bindings = <&kp RA(NUMBER_7)>;
         };
 
@@ -311,7 +311,7 @@ _name_: _name_##_macro {                   \
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             layers = <BASE_MAC>;
-            key-positions = <15 16>;
+            key-positions = <7 18>;
             bindings = <&kp RA(NON_US_BSLH)>;
         };
 
