@@ -41,26 +41,7 @@ _name_: _name_##_macro {                   \
     };
 };
 
-
-
-
-
-&mt {
-  //  flavor = "tap-preferred";
-   // tapping_term_ms = <200>;
-};
-
 / {
-    // macros {
-    //     tilde_with_space: tilde_with_space {
-    //         compatible = "zmk,behavior-macro";
-    //         #binding-cells = <0>;
-    //         bindings
-    //             = <&macro_tap &kp RALT(SEMICOLON)>  // Press Alt+Semicolon
-    //             , <&macro_tap &kp SPACE>              // Then tap Space
-    //             ;
-    //     };
-    // };
 
 
 // 0  1  2  3  4    5  6  7  8  9
@@ -69,18 +50,6 @@ _name_: _name_##_macro {                   \
 //          30 31   32 33 
 
 
-// 
-// 
-// 
-// 
-//      esc   @    {     €          #    }    /   ` 
-//      =     !    (     <          >    )    ?   '*
-//      %     ~    [     $          &    ]   +\   -_
-// 
-//      CTRL ALT SHIFT                 SHIFT ALT CTRL    
-// 
-//                TAB    <-         SPACE ENTER
-// 
 
     combos {
         compatible = "zmk,combos";
@@ -418,16 +387,16 @@ _name_: _name_##_macro {                   \
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick_tap_ms = <200>;
         };
-
     };
 
     // 
     // 
-    // 
-    // 
-    //      esc   @    {     €          #    }    /   " 
+    //      esc   @    {     €          #    }    /   ` 
+    //                                       "
     //      =     !    (     <          >    )    ?   '*
+    //
     //      %     ~    [     $          &    ]   +\   -_
+    //
     // 
     //      CTRL ALT SHIFT                 SHIFT ALT CTRL    
     // 
@@ -445,7 +414,7 @@ _name_: _name_##_macro {                   \
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-		      &mt LSHIFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
+		      &kp Z           &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
           			                                    &lt 2 TAB     &lt 2 BSPC  		 &lt 3 SPACE     &lt 3 RET	
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
@@ -459,7 +428,7 @@ _name_: _name_##_macro {                   \
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &hm_l LCTRL A  &hm_l LALT L &hm_l LGUI S  &hm_ls LSHFT T   &kp K             &kp H      &hm_rs RSHFT N  &hm_r RGUI E  &hm_r LALT I &hm_r RCTRL O
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-		      &mt LSHIFT Z    &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
+		      &kp Z           &kp X           &kp C       &kp V           &kp B				&kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
           			                                    &lt 2 TAB     &lt 2 BSPC  		 &lt 3 SPACE     &lt 3 RET	
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
