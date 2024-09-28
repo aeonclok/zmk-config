@@ -38,7 +38,7 @@ _name_: _name_##_macro {                   \
     macros {
         MACRO(backtick,  &kp LS(EQUAL) &kp SPACE)
         MACRO(caret,  &kp LS(RIGHT_BRACKET) &kp SPACE) 
-        MACRO(tilde, &kp RA(RIGHT_BRACKET) %kp SPACE)
+        MACRO(tilde, &kp RA(RIGHT_BRACKET) &kp SPACE)
     };
 };
 
