@@ -78,7 +78,7 @@
             require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;
             key-positions = <8 9>;
             layers = <BASE BASE_MAC>;
-            bindings = <&kp TILDE>;
+            bindings = <&kp LS(NON_US_BACKSLASH)>;
         };
 
         combo_tilde {
