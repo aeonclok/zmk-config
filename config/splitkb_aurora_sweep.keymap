@@ -113,7 +113,7 @@ combo_##_name_ {                                                \
         // https://github.com/urob/zmk-config#timeless-homerow-mods
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2, &kp>,  <&kp>;
+            #binding-cells = <2, &kp>, <&kp>;
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM>;
