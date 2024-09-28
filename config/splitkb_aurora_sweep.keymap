@@ -79,6 +79,7 @@
             key-positions = <8 9>;
             layers = <BASE BASE_MAC>;
             bindings = <&kp TILDE>;
+        };
 
         combo_tilde {
             timeout-ms = <COMBO_TERM_FAST>;
