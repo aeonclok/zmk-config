@@ -72,6 +72,7 @@ combo_##_name_ {                                                \
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(esc, 0 1, WIN MAC, &kp ESC)
         COMBO(esc_second, 2 11, WIN MAC, &kp ESC)
+        COMBO(tab, 2 13, WIN MAC, &kp TAB)
         COMBO(question, 17 18, WIN MAC, &kp LS(MINUS))
         COMBO(colon, 17 28, WIN MAC, &kp LS(DOT))
         COMBO(and, 25 26, WIN MAC, &kp LS(NUMBER_6))
