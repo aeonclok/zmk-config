@@ -70,8 +70,8 @@ combo_##_name_ {                                                \
     combos {
         compatible = "zmk,combos";
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
-//      COMBO(esc, 0 1, WIN MAC, &kp ESC)
-        COMBO(esc_second, 2 11, WIN MAC, &kp ESC)
+        COMBO(old_esc, 0 1, WIN MAC, &trans)
+        COMBO(esc, 2 11, WIN MAC, &kp ESC)
         COMBO(enter, 26 17, WIN MAC, &kp RET)
         COMBO(tab, 2 13, WIN MAC, &kp TAB)
         COMBO(question, 17 18, WIN MAC, &kp LS(MINUS))
@@ -273,13 +273,13 @@ combo_##_name_ {                                                \
        	left_layer {
 		bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-		       &kp N7         &kp N5        &kp N3       &kp N1        &kp N9              &kp N8        &kp N0        &kp N2        &kp N4       &kp N6
+		       &kp F7         &kp F5        &kp F3       &kp F1        &kp F9              &kp F8        &kp F0        &kp F2        &kp F4       &kp F6
+		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+		   &hm_l LCTRL N7 &hm_l LALT N5 &hm_l LGUI N3 &hm_ls LSHFT N1     &trans            &trans    &hm_rs RSHFT N0 &hm_r RGUI N2 &hm_r LALT N4 &hm_r RCTRL N6
 		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-		   &hm_l LCTRL N7 &hm_l LALT N5 &hm_l LGUI N3 &hm_ls LSHFT N1     &kp N9           &kp N8   &hm_rs RSHFT N0 &hm_r RGUI N2 &hm_r LALT N4 &hm_r RCTRL N6
-		// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &trans         &trans        &trans       &kp N9       &kp N9           &kp N8        &kp N8       &trans         &trans      &trans
+               &trans         &trans        &trans       &kp N9       &trans            &trans         &kp N8       &trans         &trans      &trans
 		// ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-					                                     &mo 2         &kp LGUI  		  &kp RGUI       &mo 4 
+					                                                &mo 2         &trans   		  &kp SPACE       &lt 4 RET 
         //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
 		>;
 		};
