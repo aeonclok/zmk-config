@@ -110,7 +110,7 @@ combo_##_name_ {                                                \
 
     behaviors {
 
-        mod_morph_curly_braces: mod_morph_curly_braces {
+        brackets_curly: mod_morph_curly_braces {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp RA(RS(NUMBER_8))>, <&kp RA(RS(NUMBER_9))>; // `{` and `}`
