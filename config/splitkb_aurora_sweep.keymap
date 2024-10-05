@@ -4,16 +4,11 @@
  * SPDX-License-Identifier: MIT
  */
 
-// TODO:
-// Add Del
-// Add function keys
-// Switch back to main ZMK repository from urob
-//     See if homerow mods config needs updating
-
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "zmk-helpers/helper.h"
+#include <behaviors/num_word.dtsi> // requires auto-layer module
 
 #define WIN 0
 #define MAC 1
