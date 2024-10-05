@@ -109,7 +109,14 @@ combo_##_name_ {                                                \
     };
 
     behaviors {
-
+        lt_bspc_del: layer_tap_backspace_delete {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            //quick-tap-ms = <0>;
+            //flavor = "tap-preferred";
+            bindings = <&mo>, <&bspc_del>;
+        };
         brackets_curly: mod_morph_curly_braces {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -260,7 +267,7 @@ combo_##_name_ {                                                \
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &kp Z           &kp X           &kp C       &kp V           &kp B       &kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                    &lt 2 TAB  &lt 2 bspc_del       &lt 3 SPACE     &lt 3 RET  
+                                                    &lt 2 TAB  &lt_bspc_del 2 0       &lt 3 SPACE     &lt 3 RET  
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };        
@@ -274,7 +281,7 @@ combo_##_name_ {                                                \
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp Z           &kp X           &kp C       &kp V           &kp B       &kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                    &lt 2 TAB   &lt 2 bspc_del      &lt 3 SPACE     &lt 3 RET 
+                                                    &lt 2 TAB  &lt_bspc_del 2 0      &lt 3 SPACE     &lt 3 RET 
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
