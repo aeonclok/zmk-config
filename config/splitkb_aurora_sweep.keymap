@@ -127,7 +127,7 @@ combo_##_name_ {                                                \
             //flavor = "tap-preferred";
             bindings = <&mo>, <&bspc_del>;
         };
-        MODMORPH(mod_brackets_curly_mac, RA(RS(NUMBER_8)), RA(RS(NUMBER_9)))
+        MODMORPH(mod_brackets_curly_mac, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
