@@ -119,8 +119,8 @@ combo_##_name_ {                                                \
         MODMORPH(mod_brackets_curly_win, &kp RA(NUMBER_7), &kp RA(NUMBER_0))
         MODMORPH(mod_brackets_round, &kp LS(NUMBER_8), &kp LS(NUMBER_9))
         MODMORPH(mod_brackets_square, &kp RA(NUMBER_8), &kp RA(NUMBER_9))
-        MODMORPH(mod_brackets_angled_win &kp NON_US_BSLH), &kp LS(NON_US_BSLH))
-        MODMORPH(mod_brackets_angled_mac &kp GRAVE, &kp LS(GRAVE))
+        MODMORPH(mod_brackets_angled_win, &kp NON_US_BSLH), &kp LS(NON_US_BSLH))
+        MODMORPH(mod_brackets_angled_mac, &kp GRAVE, &kp LS(GRAVE))
 
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
