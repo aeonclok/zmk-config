@@ -57,6 +57,22 @@ combo_##_name_ {                                                \
     layers                = <_layers_>;                         \
 };
 
+#define COMBO_SHIFT(_name_, _key_positions_, _layers_, _bindings_, _shift_bindings_) \
+combo_##_name_ {                                                                     \
+    timeout-ms            = <COMBO_TERM_FAST>;                                       \
+    require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;                                 \
+    bindings              = <_bindings_>;                                            \
+    key-positions         = <_key_positions_>;                                       \
+    layers                = <_layers_>;                                              \
+};                                                                                   \
+combo_##_name_##_shift {                                                             \
+    timeout-ms            = <COMBO_TERM_FAST>;                                       \
+    require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;                                 \
+    bindings              = <_shift_bindings_>;                                      \
+    key-positions         = <_key_positions_>;                                       \
+    layers                = <_layers_>;                                              \
+    modifiers             = <(MOD_LSHT | MOD_RSHT)>;                                 \
+};
 / { 
 
 // 0  1  2  3  4    5  6  7  8  9
@@ -69,6 +85,12 @@ combo_##_name_ {                                                \
 
     combos {
         compatible = "zmk,combos";
+
+        //COMBO(bracket_curly_l_mac, 2 3, MAC, &kp RA(RS(NUMBER_8)))
+        //COMBO(bracket_curly_r_mac, 6 7, MAC, &kp RA(RS(NUMBER_9)))
+
+        COMBO_SHIFT(curly_brace, 2 3, WIN MAC, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
+
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(old_esc, 0 1, WIN MAC, &trans)
         COMBO(esc, 2 11, WIN MAC, &kp ESC)
@@ -94,8 +116,6 @@ combo_##_name_ {                                                \
         COMBO(bracket_round_r, 16 17, WIN MAC, &kp LS(NUMBER_9))
         COMBO(bracket_square_l, 22 23, WIN MAC, &kp RA(NUMBER_8))
         COMBO(bracket_square_r, 26 27, WIN MAC, &kp RA(NUMBER_9))
-        COMBO(bracket_curly_l_mac, 2 3, MAC, &kp RA(RS(NUMBER_8)))
-        COMBO(bracket_curly_r_mac, 6 7, MAC, &kp RA(RS(NUMBER_9)))
         COMBO(bracket_curly_l_win, 2 3, WIN, &kp RA(NUMBER_7))
         COMBO(bracket_curly_r_win, 6 7, WIN, &kp RA(NUMBER_0))
         COMBO(bracket_angled_l_win, 13 14, WIN, &kp NON_US_BSLH)
