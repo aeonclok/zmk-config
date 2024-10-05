@@ -57,21 +57,14 @@ combo_##_name_ {                                                \
     layers                = <_layers_>;                         \
 };
 
-#define COMBO_SHIFT(_name_, _key_positions_, _layers_, _bindings_, _shift_bindings_) \
-combo_##_name_ {                                                                     \
-    timeout-ms            = <COMBO_TERM_FAST>;                                       \
-    require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;                                 \
-    bindings              = <_bindings_>;                                            \
-    key-positions         = <_key_positions_>;                                       \
-    layers                = <_layers_>;                                              \
-};                                                                                   \
-combo_##_name_##_shift {                                                             \
-    timeout-ms            = <COMBO_TERM_FAST>;                                       \
-    require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;                                 \
-    bindings              = <_shift_bindings_>;                                      \
-    key-positions         = <_key_positions_>;                                       \
-    layers                = <_layers_>;                                              \
-    modifiers             = <(MOD_LSHT | MOD_RSHT)>;                                 \
+#define MOD_COMBO(_name_, _key_positions_, _layers_, _bindings_, _modifiers_)    \
+combo_##_name_ {                                                                 \
+    timeout-ms            = <COMBO_TERM_FAST>;                                   \
+    require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;                             \
+    bindings              = <_bindings_>;                                        \
+    key-positions         = <_key_positions_>;                                   \
+    layers                = <_layers_>;                                          \
+    modifiers             = <_modifiers_>;                                       \
 };
 / { 
 
@@ -80,16 +73,13 @@ combo_##_name_##_shift {                                                        
 // 20 21 22 23 24   25 26 27 28 29
 //          30 31   32 33 
 
-
-
-
     combos {
         compatible = "zmk,combos";
 
-        //COMBO(bracket_curly_l_mac, 2 3, MAC, &kp RA(RS(NUMBER_8)))
-        //COMBO(bracket_curly_r_mac, 6 7, MAC, &kp RA(RS(NUMBER_9)))
+        COMBO(bracket_curly_l_mac, 2 3, MAC, &kp RA(RS(NUMBER_8)))
+        MOD_COMBO(bracket_curly_r_mac, 6 7, MAC, &kp RA(RS(NUMBER_9)), MOD_RSHT)
 
-        COMBO_SHIFT(curly_brace, 2 3, WIN MAC, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
+//        COMBO_SHIFT(curly_brace, 2 3, WIN MAC, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
 
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(old_esc, 0 1, WIN MAC, &trans)
