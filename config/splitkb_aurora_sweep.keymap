@@ -89,12 +89,17 @@ combo_##_name_ {                                                \
         COMBO(hashtag, 5 6, WIN MAC, &kp LS(NUMBER_3))
         COMBO(euro_mac, 3 4, MAC, &kp LS(NUMBER_4))
         COMBO(euro_win, 3 4, WIN, &kp RA(E))
-        COMBO(bracket_angled_l_win, 13 14, WIN, &kp NON_US_BSLH)
-        COMBO(bracket_angled_r_win, 15 16, WIN, &kp LS(NON_US_BSLH))
-        COMBO(bracket_angled_l_mac, 13 14, MAC, &kp GRAVE)
-        COMBO(bracket_angled_r_mac, 15 16, MAC, &kp LS(GRAVE))
         COMBO(pipe_mac, 7 18, MAC, &kp RA(NUMBER_7))
         COMBO(pipe_win, 7 18, WIN, &kp RA(NON_US_BSLH))
+        COMBO(exclamation, 11 12, WIN MAC, &kp LS(NUMBER_1))
+        COMBO(minus, 28 29, WIN MAC, &kp SLASH)
+        COMBO(plus, 27 28, WIN MAC, &kp MINUS)
+        COMBO(at, 1 2, WIN MAC, &kp RA(NUMBER_2))
+        COMBO(doublequote, 16 7, WIN MAC, &kp LS(NUMBER_2))
+        COMBO(singlequote, 18 19, WIN MAC, &kp BACKSLASH)
+        COMBO(slash, 7 8, WIN MAC, &kp LS(NUMBER_7))
+        COMBO(backslash_mac, 17 8, MAC, &kp RA(LS(NUMBER_7)))
+        COMBO(backslash_win, 17 8, WIN, &kp RA(MINUS))
         COMBO(caret, 15 6, WIN MAC, &caret)
         COMBO(dollar, 23 24, WIN MAC, &kp RA(NUMBER_4))  
         COMBO(backtick, 8 9, WIN MAC, &backtick)
@@ -206,7 +211,6 @@ combo_##_name_ {                                                \
         };
     };
 
-
 // 
 // 
 //      COMBOS:
@@ -228,26 +232,6 @@ combo_##_name_ {                                                \
 //                 TAB   <-   SPACE ENTER
 // 
 // 
-//      DEFAULT LAYER:
-// 
-//      Q   D   J   P   G        F   R   U   Y   Ö 
-//      A   L   S   T   K        H   N   E   I   O 
-//      Z   X   C   V   B        W   M   Ä  .:  ,;
-//                 TAB   <-   SPACE ENTER
-// 
-// 
-//      LEFT LAYER:
-// 
-//      1   2   3   4   5        6   7   8   9   0 
-//      1   2   3   4   5        6   7   8   9   0
-//      -   -   -   -   -        -   -   -   -   -
-//                 2L  LGUI     RGUI 4L
-// 
-// 
-//         
-// 
-
-
 
     keymap {
                 compatible = "zmk,keymap";
