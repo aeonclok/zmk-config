@@ -13,6 +13,7 @@
 
 #define WIN 0
 #define MAC 1
+#define NUM 2
 
 #define AS(keycode) &as LS(keycode) keycode
 
@@ -67,6 +68,17 @@ combo_##_name_ {                                                \
 // 20 21 22 23 24   25 26 27 28 29
 //          30 31   32 33 
 
+#define SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&num_dance>;
+)
+ZMK_TAP_DANCE(num_dance,
+    tapping-term-ms = <200>;
+    bindings = <&num_word NUM>, <&sl NUM>;  // reverse this for sticky-num on single tap
+)
     combos {
         compatible = "zmk,combos";
 
@@ -76,6 +88,7 @@ combo_##_name_ {                                                \
         COMBO(brackets_square, 22 23, WIN MAC, &mod_brackets_square)
         COMBO(brackets_angled_mac, 13 14, MAC, &mod_brackets_angled_mac)
         COMBO(brackets_angled_win, 13 14, WIN, &mod_brackets_angled_win)
+        COMBO(backspace_delete, 6 7, WIN MAC, &mod_bspc_del)
 
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(old_esc, 0 1, WIN MAC, &trans)
@@ -114,7 +127,7 @@ combo_##_name_ {                                                \
             tapping-term-ms = <200>;
             //quick-tap-ms = <0>;
             //flavor = "tap-preferred";
-            bindings = <&mo>, <&bspc_del>;
+            bindings = <&mo>, <&mod_bspc_del>;
         };
         MODMORPH(mod_brackets_curly_mac, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
         MODMORPH(mod_brackets_curly_win, &kp RA(NUMBER_7), &kp RA(NUMBER_0))
@@ -123,7 +136,7 @@ combo_##_name_ {                                                \
         MODMORPH(mod_brackets_angled_win, &kp NON_US_BSLH, &kp LS(NON_US_BSLH))
         MODMORPH(mod_brackets_angled_mac, &kp GRAVE, &kp LS(GRAVE))
 
-        bspc_del: backspace_delete {
+        mod_bspc_del: mod_backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp DELETE>;
@@ -245,7 +258,7 @@ combo_##_name_ {                                                \
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &kp Z           &kp X           &kp C       &kp V           &kp B       &kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                    &lt 2 TAB  &lt_bspc_del 2 0       &lt 3 SPACE     &lt 3 RET  
+                                                    &lt 2 TAB   SMART_NUM          &lt 3 SPACE     &lt 3 RET  
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };        
@@ -259,7 +272,7 @@ combo_##_name_ {                                                \
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp Z           &kp X           &kp C       &kp V           &kp B       &kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                    &lt 2 TAB  &lt_bspc_del 2 0      &lt 3 SPACE     &lt 3 RET 
+                                                    &lt 2 TAB   SMART_NUM          &lt 3 SPACE     &lt 3 RET 
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
