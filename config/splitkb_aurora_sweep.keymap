@@ -56,16 +56,6 @@ combo_##_name_ {                                                \
     key-positions         = <_key_positions_>;                  \
     layers                = <_layers_>;                         \
 };
-
-#define MOD_COMBO(_name_, _key_positions_, _layers_, _bindings_, _modifiers_)    \
-combo_##_name_ {                                                                 \
-    timeout-ms            = <COMBO_TERM_FAST>;                                   \
-    require-prior-idle-ms = <COMBO_GLOBAL_QUICKTAP>;                             \
-    bindings              = <_bindings_>;                                        \
-    key-positions         = <_key_positions_>;                                   \
-    layers                = <_layers_>;                                          \
-    modifiers             = <_modifiers_>;                                       \
-};
 / { 
 
 // 0  1  2  3  4    5  6  7  8  9
@@ -76,10 +66,7 @@ combo_##_name_ {                                                                
     combos {
         compatible = "zmk,combos";
 
-        COMBO(bracket_curly_l_mac, 2 3, MAC, &kp RA(RS(NUMBER_8)))
-        MOD_COMBO(bracket_curly_r_mac, 6 7, MAC, &kp RA(RS(NUMBER_9)), MOD_RSHT)
-
-//        COMBO_SHIFT(curly_brace, 2 3, WIN MAC, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
+        COMBO(bracket_curly_l_mac, 2 3, MAC, &brackets_curly)
 
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(old_esc, 0 1, WIN MAC, &trans)
@@ -123,6 +110,18 @@ combo_##_name_ {                                                                
 
     behaviors {
 
+        mod_morph_curly_braces: mod_morph_curly_braces {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(RS(NUMBER_8))>, <&kp RA(RS(NUMBER_9))>; // `{` and `}`
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
         // Positional Homerow mods
         // Homerow mods that prevent accidental activations when rolling keys,
         // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
