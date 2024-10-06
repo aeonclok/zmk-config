@@ -135,13 +135,13 @@ ZMK_TAP_DANCE(num_dance,
             //flavor = "tap-preferred";
             bindings = <&mo>, <&mod_bspc_del>;
         };
-        MODMORPH(mod_brackets_curly_mac, &kp ra(rs(number_8)), &kp ra(rs(number_9)))
-        MODMORPH(mod_brackets_curly_win, &kp ra(number_7), &kp ra(number_0))
-        MODMORPH(modc_brackets_round, &kp ls(number_8), &kp ls(number_9))
-        MODMORPH(mod_brackets_square, &kp ra(number_8), &kp ra(number_9))
-        MODMORPH(mod_brackets_angled_win, &kp non_us_bslh, &kp ls(non_us_bslh))
-        MODMORPH(mod_brackets_angled_mac, &kp grave, &kp ls(grave))
-        MODMORPH(mod_bspc_del, &kp backspace, &kp delete)
+        MODMORPH(mod_brackets_curly_mac, &kp RA(RS(NUMBER_8)), &kp RA(RS(NUMBER_9)))
+        MODMORPH(mod_brackets_curly_win, &kp RA(NUMBER_7), &kp RA(NUMBER_0))
+        MODMORPH(modc_brackets_round, &kp LS(NUMBER_8), &kp LS(NUMBER_9))
+        MODMORPH(mod_brackets_square, &kp RA(NUMBER_8), &kp RA(NUMBER_9))
+        MODMORPH(mod_brackets_angled_win, &kp NON_US_BSLH, &kp LS(NON_US_BSLH))
+        MODMORPH(mod_brackets_angled_mac, &kp GRAVE, &kp LS(GRAVE))
+        MODMORPH(mod_bspc_del, &kp BACKSPACE, &kp DELETE)
 
 // positional homerow mods
 // homerow mods that prevent accidental activations when rolling keys,
