@@ -144,7 +144,7 @@ MAKE_HRMS(hm_rs, &kp, &kp, KEYS_L KEYS_T)
         COMBO(percent, &kp LS(NUMBER_5), 20 21, WIN MAC)
         COMBO(tilde, &tilde, 21 22, WIN MAC)
         COMBO(brackets_square, &mod_brackets_square, 22 23, WIN MAC)
-        COMBO(dollar, &kp RA(NUMBER_4)) , 23 24, WIN MAC 
+        COMBO(dollar, &kp RA(NUMBER_4), 23 24, WIN MAC)
         COMBO(and, &kp LS(NUMBER_6), 25 26, WIN MAC)
         COMBO(colon, &kp LS(DOT), 17 28, WIN MAC)
         COMBO(plus, &kp MINUS, 27 28, WIN MAC)
