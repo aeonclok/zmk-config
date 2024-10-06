@@ -107,6 +107,11 @@ MAKE_HRMS(hm_rs, &kp, &kp, KEYS_L KEYS_T)
 //          30 31   32 33 
 //  ZMK_COMBO(name, bindings, keypos, layers, timeout, prior_idle, extra)
 
+//            @    {}    €          #   /  bs/del  "
+//        esc  tab                    "      \
+//      =     !    ()    <>                   ?   '*
+//      %     ~    []    $          &        +\   -_
+// 
     combos {
         compatible = "zmk,combos";
 
@@ -116,7 +121,7 @@ MAKE_HRMS(hm_rs, &kp, &kp, KEYS_L KEYS_T)
         COMBO(brackets_square, 22 23, WIN MAC, &mod_brackets_square)
         COMBO(brackets_angled_mac, 13 14, MAC, &mod_brackets_angled_mac)
         COMBO(brackets_angled_win, 13 14, WIN, &mod_brackets_angled_win)
-        COMBO(backspace_delete, 6 7, WIN MAC, &mod_bspc_del)
+        COMBO(backspace_delete, 7 8, WIN MAC, &mod_bspc_del)
         COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(old_esc, 0 1, WIN MAC, &trans)
         COMBO(esc, 2 11, WIN MAC, &kp ESC)
@@ -137,7 +142,7 @@ MAKE_HRMS(hm_rs, &kp, &kp, KEYS_L KEYS_T)
         COMBO(at, 1 2, WIN MAC, &kp RA(NUMBER_2))
         COMBO(doublequote, 16 7, WIN MAC, &kp LS(NUMBER_2))
         COMBO(singlequote, 18 19, WIN MAC, &kp BACKSLASH)
-        COMBO(slash, 7 8, WIN MAC, &kp LS(NUMBER_7))
+        COMBO(slash, 6 7, WIN MAC, &kp LS(NUMBER_7))
         COMBO(backslash_mac, 17 8, MAC, &kp RA(LS(NUMBER_7)))
         COMBO(backslash_win, 17 8, WIN, &kp RA(MINUS))
         COMBO(caret, 15 6, WIN MAC, &caret)
@@ -169,9 +174,10 @@ MAKE_HRMS(hm_rs, &kp, &kp, KEYS_L KEYS_T)
 // 
 //      COMBOS:
 // 
-//      esc   @    {     €          #    }    /   " 
-//      =     !    (     <          >    )    ?   '*
-//      %     ~    [     $          &    ]   +\   -_
+//            @    {}    €                    /   "
+//        esc  tab   
+//      =     !    ()    <>                   ?   '*
+//      %     ~    []    $          &        +\   -_
 // 
 //      Home Row Mods:
 //
