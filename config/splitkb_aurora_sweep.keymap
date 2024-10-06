@@ -75,15 +75,6 @@ ZMK_TAP_DANCE(num_dance,
     bindings = <&num_word NUM>, <&sl NUM>;  // reverse this for sticky-num on single tap
 )
 
-
-// positional homerow mods
-// homerow mods that prevent accidental activations when rolling keys,
-// such as when typing `st` or `ne` on colemak-dh layouts or `as` on
-// qwerty.
-//
-// works by only allowing a mod to activate within tapping-term if
-// it's on the opposite side of the keyboard or on the same side thumb
-// keys.
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \ 
     ZMK_HOLD_TAP(NAME, \
         flavor = "balanced"; \
@@ -94,8 +85,19 @@ ZMK_TAP_DANCE(num_dance,
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
-MAKE_HRM(hm_l, &kp, &kp, KEYS_R KEYS_T)  // left-hand hrms
-MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
+MAKE_HRM(hm_l, &kp, &kp, KEYS_R KEYS_T)
+MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)
+
+#define MAKE_HRMS(NAME, HOLD, TAP, TRIGGER_POS) \ 
+    ZMK_HOLD_TAP(NAME, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <175>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+    )
+MAKE_HRMS(hm_ls, &kp, &kp, KEYS_R KEYS_T)
+MAKE_HRMS(hm_rs, &kp, &kp, KEYS_L KEYS_T)
 
 / { 
 
@@ -150,7 +152,6 @@ MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            //quick-tap-ms = <0>;
             //flavor = "tap-preferred";
             bindings = <&mo>, <&mod_bspc_del>;
         };
@@ -162,82 +163,6 @@ MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
         MODMORPH(mod_brackets_angled_mac, &kp GRAVE, &kp LS(GRAVE))
         MODMORPH(mod_bspc_del, &kp BACKSPACE, &kp DELETE)
 
-        // Positional Homerow mods
-        // Homerow mods that prevent accidental activations when rolling keys,
-        // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
-        // qwerty.
-        //
-        // Works by only allowing a mod to activate within tapping-term if
-        // it's on the opposite side of the keyboard or on the same side thumb
-        // keys.
-        // Further optimization using urob's timerless homerow mods method:
-        // https://github.com/urob/zmk-config#timeless-homerow-mods
-//        hm_l: homerow_mods_left {
-//            compatible = "zmk,behavior-hold-tap";
-//            #binding-cells = <2>;
-//            bindings = <&kp>,  <&kp>;
-//            flavor = "balanced";
-//            tapping-term-ms = <HM_TAPPING_TERM>;
-//            quick-tap-ms = <175>;                // repeat on tap-into-hold
-//            require-prior-idle-ms = <150>;         // requires PR #1387
-//            hold-trigger-key-positions = <KEYS_R KEYS_T>;
-//            hold-trigger-on-release;             // requires PR #1423
-//        };
-//        hm_r: homerow_mods_right {
-//            compatible = "zmk,behavior-hold-tap";
-//            #binding-cells = <2>;
-//            bindings = <&kp>,  <&kp>;
-//            flavor = "balanced";
-//            tapping-term-ms = <HM_TAPPING_TERM>;
-//            quick_tap_ms = <175>;
-//            require-prior-idle-ms = <150>;         // requires PR #1387
-//            hold-trigger-key-positions = <KEYS_L KEYS_T>;
-//            hold-trigger-on-release;             // requires PR #1423
-//        };
-        // positional homerow mods for shift
-        // Use faster tapping term and disable some features that may
-        // cause false negatives.
-        hm_ls: hm_ls {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>,  <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick_tap_ms = <175>;
-            // require-prior-idle-ms = <150>;         // requires PR #1387
-            hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            // hold-trigger-on-release;             // requires PR #1423
-        };
-
-        hm_rs: hm_rs {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>,  <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM_FAST>;
-            quick_tap_ms = <175>;
-            // require-prior-idle-ms = <150>;         // requires PR #1387
-            hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            // hold-trigger-on-release;             // requires PR #1423
-        };
-
-        /*
-         * Non-Positional Homerow Mods
-         * Used for &mm_grescm_gui behavior on left hand.
-         *
-         * Usage: &hm LSHFT T
-         * Tap: T
-         * Tap-Tap-Hold: Repeat T
-         * Hold: LSHIFT
-         */
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>,  <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            quick_tap_ms = <200>;
-        };
     };
 
 // 
