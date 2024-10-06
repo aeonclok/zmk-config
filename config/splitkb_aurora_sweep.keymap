@@ -96,7 +96,7 @@ ZMK_TAP_DANCE(num_dance,
         COMBO(brackets_angled_win, 13 14, WIN, &mod_brackets_angled_win)
         COMBO(backspace_delete, 6 7, WIN MAC, &mod_bspc_del)
 
-        COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog mac)
+        COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
         COMBO(old_esc, 0 1, WIN MAC, &trans)
         COMBO(esc, 2 11, WIN MAC, &kp esc)
         COMBO(enter, 26 17, WIN MAC, &kp ret)
