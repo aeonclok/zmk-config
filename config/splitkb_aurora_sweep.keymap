@@ -76,26 +76,6 @@ ZMK_TAP_DANCE(num_dance,
 )
 
 
-// positional homerow mods
-// homerow mods that prevent accidental activations when rolling keys,
-// such as when typing `st` or `ne` on colemak-dh layouts or `as` on
-// qwerty.
-//
-// works by only allowing a mod to activate within tapping-term if
-// it's on the opposite side of the keyboard or on the same side thumb
-// keys.
-#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-    ZMK_HOLD_TAP(NAME, \
-        flavor = "balanced"; \
-        tapping-term-ms = <280>; \
-        quick-tap-ms = <175>; \
-        require-prior-idle-ms = <150>; \
-        bindings = <HOLD>, <TAP>; \
-        hold-trigger-key-positions = <TRIGGER_POS>; \
-        hold-trigger-on-release; \
-    )
-MAKE_HRM(hm_l, &kp, &kp, KEYS_R KEYS_T)  // left-hand hrms
-MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
 
 / { 
 
@@ -163,6 +143,35 @@ MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
         MODMORPH(mod_brackets_angled_mac, &kp grave, &kp ls(grave))
         MODMORPH(mod_bspc_del, &kp backspace, &kp delete)
 
+// positional homerow mods
+// homerow mods that prevent accidental activations when rolling keys,
+// such as when typing `st` or `ne` on colemak-dh layouts or `as` on
+// qwerty.
+//
+// works by only allowing a mod to activate within tapping-term if
+// it's on the opposite side of the keyboard or on the same side thumb
+// keys.
+//#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_HOLD_TAP(hm_l, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <175>; \
+        require-prior-idle-ms = <150>; \
+        bindings = <&kp>, <&kp>; \
+        hold-trigger-key-positions = <KEYS_R KEYS_T>; \
+        hold-trigger-on-release; \
+    )
+    ZMK_HOLD_TAP(hm_r, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <175>; \
+        require-prior-idle-ms = <150>; \
+        bindings = <&kp>, <&kp>; \
+        hold-trigger-key-positions = <KEYS_L KEYS_T>; \
+        hold-trigger-on-release; \
+    )
+//MAKE_HRM(hm_l, &kp, &kp, KEYS_R KEYS_T)  // left-hand hrms
+//MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
         // positional homerow mods for shift
         // Use faster tapping term and disable some features that may
         // cause false negatives.
