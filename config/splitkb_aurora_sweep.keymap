@@ -94,8 +94,8 @@ ZMK_TAP_DANCE(num_dance,
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
     )
-MAKE_HRM(hm_l, &kp, &kp, keys_r keys_t)  // left-hand hrms
-MAKE_HRM(hm_r, &kp, &kp, keys_l keys_t)  // right-hand hrms
+MAKE_HRM(hm_l, &kp, &kp, KEYS_R KEYS_T)  // left-hand hrms
+MAKE_HRM(hm_r, &kp, &kp, KEYS_L KEYS_T)  // right-hand hrms
 
 / { 
 
