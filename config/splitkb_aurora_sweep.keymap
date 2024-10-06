@@ -4,19 +4,17 @@
  * SPDX-License-Identifier: MIT
  */
 
-// TODO:
-// Add Del
-// Add function keys
-// Switch back to main ZMK repository from urob
-//     See if homerow mods config needs updating
-
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <behaviors/num_word.dtsi> // requires auto-layer module
+
+#include "zmk-helpers/helper.h"
 
 #define WIN 0
 #define MAC 1
+#define NUM 2
 
 #define AS(keycode) &as LS(keycode) keycode
 
@@ -48,6 +46,14 @@ _name_: _name_##_macro {                   \
     };
 };
 
+#define MODMORPH(_name_, _bindings_, _bindings_shift_)               \
+_name_: _name_##_modmorph {                                          \
+    compatible = "zmk,behavior-mod-morph";                           \
+    #binding-cells = <0>;                                            \
+    bindings = <_bindings_>, <_bindings_shift_>;                     \
+    mods = <(MOD_LSFT | MOD_RSFT)>;                                  \
+};
+
 #define COMBO(_name_, _key_positions_, _layers_, _bindings_)    \
 combo_##_name_ {                                                \
     timeout-ms            = <COMBO_TERM_FAST>;                  \
@@ -57,6 +63,40 @@ combo_##_name_ {                                                \
     layers                = <_layers_>;                         \
 };
 
+#define SMART_NUM &smart_num NUM 0
+ZMK_HOLD_TAP(smart_num,
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <175>;
+    bindings = <&mo>, <&num_dance>;
+)
+ZMK_TAP_DANCE(num_dance,
+    tapping-term-ms = <200>;
+    bindings = <&num_word NUM>, <&sl NUM>;  // reverse this for sticky-num on single tap
+)
+
+
+// positional homerow mods
+// homerow mods that prevent accidental activations when rolling keys,
+// such as when typing `st` or `ne` on colemak-dh layouts or `as` on
+// qwerty.
+//
+// works by only allowing a mod to activate within tapping-term if
+// it's on the opposite side of the keyboard or on the same side thumb
+// keys.
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_HOLD_TAP(NAME, \
+        flavor = "balanced"; \
+        tapping-term-ms = <280>; \
+        quick-tap-ms = <175> \
+        require-prior-idle-ms = <150>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
+MAKE_HRM(hm_l, &kp, &kp, keys_r keys_t)  // left-hand hrms
+MAKE_HRM(hm_r, &kp, &kp, keys_l keys_t)  // right-hand hrms
+
 / { 
 
 // 0  1  2  3  4    5  6  7  8  9
@@ -64,92 +104,65 @@ combo_##_name_ {                                                \
 // 20 21 22 23 24   25 26 27 28 29
 //          30 31   32 33 
 
-
-
-
     combos {
         compatible = "zmk,combos";
-        COMBO(toggle_win_mac, 30 31 32 33, WIN MAC, &tog MAC)
-        COMBO(old_esc, 0 1, WIN MAC, &trans)
-        COMBO(esc, 2 11, WIN MAC, &kp ESC)
-        COMBO(enter, 26 17, WIN MAC, &kp RET)
-        COMBO(tab, 2 13, WIN MAC, &kp TAB)
-        COMBO(question, 17 18, WIN MAC, &kp LS(MINUS))
-        COMBO(colon, 17 28, WIN MAC, &kp LS(DOT))
-        COMBO(and, 25 26, WIN MAC, &kp LS(NUMBER_6))
-        COMBO(equals, 10 11, WIN MAC, &kp LS(NUMBER_0))
-        COMBO(hashtag, 5 6, WIN MAC, &kp LS(NUMBER_3))
-        COMBO(euro_mac, 3 4, MAC, &kp LS(NUMBER_4))
-        COMBO(euro_win, 3 4, WIN, &kp RA(E))
-        COMBO(exclamation, 11 12, WIN MAC, &kp LS(NUMBER_1))
-        COMBO(minus, 28 29, WIN MAC, &kp SLASH)
-        COMBO(plus, 27 28, WIN MAC, &kp MINUS)
-        COMBO(at, 1 2, WIN MAC, &kp RA(NUMBER_2))
-        COMBO(doublequote, 16 7, WIN MAC, &kp LS(NUMBER_2))
-        COMBO(singlequote, 18 19, WIN MAC, &kp BACKSLASH)
-        COMBO(slash, 7 8, WIN MAC, &kp LS(NUMBER_7))
-        COMBO(backslash_mac, 17 8, MAC, &kp RA(LS(NUMBER_7)))
-        COMBO(backslash_win, 17 8, WIN, &kp RA(MINUS))
-        COMBO(bracket_round_l, 12 13, WIN MAC, &kp LS(NUMBER_8))
-        COMBO(bracket_round_r, 16 17, WIN MAC, &kp LS(NUMBER_9))
-        COMBO(bracket_square_l, 22 23, WIN MAC, &kp RA(NUMBER_8))
-        COMBO(bracket_square_r, 26 27, WIN MAC, &kp RA(NUMBER_9))
-        COMBO(bracket_curly_l_mac, 2 3, MAC, &kp RA(RS(NUMBER_8)))
-        COMBO(bracket_curly_r_mac, 6 7, MAC, &kp RA(RS(NUMBER_9)))
-        COMBO(bracket_curly_l_win, 2 3, WIN, &kp RA(NUMBER_7))
-        COMBO(bracket_curly_r_win, 6 7, WIN, &kp RA(NUMBER_0))
-        COMBO(bracket_angled_l_win, 13 14, WIN, &kp NON_US_BSLH)
-        COMBO(bracket_angled_r_win, 15 16, WIN, &kp LS(NON_US_BSLH))
-        COMBO(bracket_angled_l_mac, 13 14, MAC, &kp GRAVE)
-        COMBO(bracket_angled_r_mac, 15 16, MAC, &kp LS(GRAVE))
-        COMBO(pipe_mac, 7 18, MAC, &kp RA(NUMBER_7))
-        COMBO(pipe_win, 7 18, WIN, &kp RA(NON_US_BSLH))
-        COMBO(caret, 15 6, WIN MAC, &caret)
-        COMBO(dollar, 23 24, WIN MAC, &kp RA(NUMBER_4))  
-        COMBO(backtick, 8 9, WIN MAC, &backtick)
-        COMBO(tilde, 21 22, WIN MAC, &tilde)
-        COMBO(percent, 20 21, WIN MAC, &kp LS(NUMBER_5))
+
+        combo(brackets_curly_mac, 2 3, mac, &mod_brackets_curly_mac)
+        combo(brackets_curly_win, 2 3, win, &mod_brackets_curly_mac)
+        combo(brackets_round, 12 13, win mac, &mod_brackets_round)
+        combo(brackets_square, 22 23, win mac, &mod_brackets_square)
+        combo(brackets_angled_mac, 13 14, mac, &mod_brackets_angled_mac)
+        combo(brackets_angled_win, 13 14, win, &mod_brackets_angled_win)
+        combo(backspace_delete, 6 7, win mac, &mod_bspc_del)
+
+        combo(toggle_win_mac, 30 31 32 33, win mac, &tog mac)
+        combo(old_esc, 0 1, win mac, &trans)
+        combo(esc, 2 11, win mac, &kp esc)
+        combo(enter, 26 17, win mac, &kp ret)
+        combo(tab, 2 13, win mac, &kp tab)
+        combo(question, 17 18, win mac, &kp ls(minus))
+        combo(colon, 17 28, win mac, &kp ls(dot))
+        combo(and, 25 26, win mac, &kp ls(number_6))
+        combo(equals, 10 11, win mac, &kp ls(number_0))
+        combo(hashtag, 5 6, win mac, &kp ls(number_3))
+        combo(euro_mac, 3 4, mac, &kp ls(number_4))
+        combo(euro_win, 3 4, win, &kp ra(e))
+        combo(pipe_mac, 7 18, mac, &kp ra(number_7))
+        combo(pipe_win, 7 18, win, &kp ra(non_us_bslh))
+        combo(exclamation, 11 12, win mac, &kp ls(number_1))
+        combo(minus, 28 29, win mac, &kp slash)
+        combo(plus, 27 28, win mac, &kp minus)
+        combo(at, 1 2, win mac, &kp ra(number_2))
+        combo(doublequote, 16 7, win mac, &kp ls(number_2))
+        combo(singlequote, 18 19, win mac, &kp backslash)
+        combo(slash, 7 8, win mac, &kp ls(number_7))
+        combo(backslash_mac, 17 8, mac, &kp ra(ls(number_7)))
+        combo(backslash_win, 17 8, win, &kp ra(minus))
+        combo(caret, 15 6, win mac, &caret)
+        combo(dollar, 23 24, win mac, &kp ra(number_4))  
+        combo(backtick, 8 9, win mac, &backtick)
+        combo(tilde, 21 22, win mac, &tilde)
+        combo(percent, 20 21, win mac, &kp ls(number_5))
     };
 
     behaviors {
-
-        // Positional Homerow mods
-        // Homerow mods that prevent accidental activations when rolling keys,
-        // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
-        // qwerty.
-        //
-        // Works by only allowing a mod to activate within tapping-term if
-        // it's on the opposite side of the keyboard or on the same side thumb
-        // keys.
-
-        // Further optimization using urob's timerless homerow mods method:
-        // https://github.com/urob/zmk-config#timeless-homerow-mods
-        hm_l: homerow_mods_left {
+        lt_bspc_del: layer_tap_backspace_delete {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            bindings = <&kp>,  <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            quick-tap-ms = <175>;                // repeat on tap-into-hold
-            require-prior-idle-ms = <150>;         // requires PR #1387
-            hold-trigger-key-positions = <KEYS_R KEYS_T>;
-            hold-trigger-on-release;             // requires PR #1423
+            tapping-term-ms = <200>;
+            //quick-tap-ms = <0>;
+            //flavor = "tap-preferred";
+            bindings = <&mo>, <&mod_bspc_del>;
         };
+        modmorph(mod_brackets_curly_mac, &kp ra(rs(number_8)), &kp ra(rs(number_9)))
+        modmorph(mod_brackets_curly_win, &kp ra(number_7), &kp ra(number_0))
+        modmorph(modc_brackets_round, &kp ls(number_8), &kp ls(number_9))
+        modmorph(mod_brackets_square, &kp ra(number_8), &kp ra(number_9))
+        modmorph(mod_brackets_angled_win, &kp non_us_bslh, &kp ls(non_us_bslh))
+        modmorph(mod_brackets_angled_mac, &kp grave, &kp ls(grave))
+        modmorph(mod_bspc_del, &kp backspace, &kp delete)
 
-        hm_r: homerow_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>,  <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HM_TAPPING_TERM>;
-            quick_tap_ms = <175>;
-            require-prior-idle-ms = <150>;         // requires PR #1387
-            hold-trigger-key-positions = <KEYS_L KEYS_T>;
-            hold-trigger-on-release;             // requires PR #1423
-        };
-
-
-        // Positional Homerow mods for shift
+        // positional homerow mods for shift
         // Use faster tapping term and disable some features that may
         // cause false negatives.
         hm_ls: hm_ls {
@@ -195,7 +208,6 @@ combo_##_name_ {                                                \
         };
     };
 
-
 // 
 // 
 //      COMBOS:
@@ -217,27 +229,6 @@ combo_##_name_ {                                                \
 //                 TAB   <-   SPACE ENTER
 // 
 // 
-//      DEFAULT LAYER:
-// 
-//      Q   D   J   P   G        F   R   U   Y   Ö 
-//      A   L   S   T   K        H   N   E   I   O 
-//      Z   X   C   V   B        W   M   Ä  .:  ,;
-//                 TAB   <-   SPACE ENTER
-// 
-// 
-//      LEFT LAYER:
-// 
-//      1   2   3   4   5        6   7   8   9   0 
-//      1   2   3   4   5        6   7   8   9   0
-//      -   -   -   -   -        -   -   -   -   -
-//                 2L  LGUI     RGUI 4L
-// 
-// 
-//         
-// 
-
-
-
 
     keymap {
                 compatible = "zmk,keymap";
@@ -251,7 +242,7 @@ combo_##_name_ {                                                \
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
             &kp Z           &kp X           &kp C       &kp V           &kp B       &kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                    &lt 2 TAB     &lt 2 BSPC       &lt 3 SPACE     &lt 3 RET  
+                                                    &lt 2 TAB   SMART_NUM          &lt 3 SPACE     &lt 3 RET  
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };        
@@ -265,7 +256,7 @@ combo_##_name_ {                                                \
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp Z           &kp X           &kp C       &kp V           &kp B       &kp W       &kp M        &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                    &lt 2 TAB     &lt 2 BSPC      &lt 3 SPACE     &lt 3 RET 
+                                                    &lt 2 TAB   SMART_NUM          &lt 3 SPACE     &lt 3 RET 
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
