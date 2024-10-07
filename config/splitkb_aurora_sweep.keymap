@@ -192,43 +192,33 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
         COMBO(euro_win,         &kp RA(E),            3 4, WIN)
         COMBO(br_square,        &mod_br_square,       2 13, WIN MAC)
         COMBO(at,               &kp RA(NUMBER_2),     3 14, WIN MAC)
-       // TODO SWITCH 
+        // TODO SWITCH 
 
         // 1 and 1+2 row combos right hand
         COMBO(doublequote,      &kp LS(NUMBER_2),     6 7, WIN MAC)
         COMBO(question,         &kp LS(MINUS),        7 8, WIN MAC)
         COMBO(exclamation,      &kp LS(NUMBER_1),     7 18, WIN MAC)
-        COMBO(backtick,         &backtick,            8 9, WIN MAC)
-        COMBO(pipe_mac,         &kp RA(NUMBER_7),     7 18, MAC)
-        COMBO(pipe_win,         &kp RA(NON_US_BSLH),  7 18, WIN)
-//      COMBO(hashtag,          &kp LS(NUMBER_3),     5 6, WIN MAC)
-//      COMBO(caret,            &caret,               15 6, WIN MAC)
-//      COMBO(slash,            &kp LS(NUMBER_7),     6 7, WIN MAC)
-//      COMBO(backslash_win,    &kp RA(MINUS),        17 8, WIN)
-//      COMBO(backslash_mac,    &kp RA(LS(NUMBER_7)), 17 8, MAC)
+        // TODO modmorph singlequote backtick, Copy
 
         // 2 and 2+3 row combos left hand
-        COMBO(equals,           &kp LS(NUMBER_0),     10 11, WIN MAC)
         COMBO(esc,              &kp ESC,              11 12, WIN MAC)
         COMBO(br_round,         &mod_br_round,        12 13, WIN MAC)
         COMBO(br_angled_mac,    &mod_br_angled_mac,   12 23, MAC)
         COMBO(br_angled_win,    &mod_br_angled_win,   12 23, WIN)
+        COMBO(dollar,           &kp RA(NUMBER_4),     13 24, WIN MAC)
+        COMBO(amp_hash,         &mod_amp_hash,        13 24, WIN MAC)
 
         // 2 and 2+3 row combos right hand
         COMBO(enter,            &kp RET,              16 17, WIN MAC)
         COMBO(backspace_delete, &mod_bspc_del,        17 18, WIN MAC)
-        COMBO(singlequote,      &kp BACKSLASH,        18 19, WIN MAC)
-        COMBO(colon,            &kp LS(DOT),          17 28, WIN MAC)
+        COMBO(pipe_mac,         &kp RA(NUMBER_7),     17 28, MAC)
+        COMBO(pipe_win,         &kp RA(NON_US_BSLH),  17 28, WIN)
+        // TODO Paste, modmorph equals and percent, modmorph forward and backslash
 
         // 3 row combos left hand
-        COMBO(percent,          &kp LS(NUMBER_5),     20 21, WIN MAC)
-        COMBO(tilde,            &tilde,               21 22, WIN MAC)
-        COMBO(dollar,           &kp RA(NUMBER_4),     23 24, WIN MAC)
 
         // 3 row combos right hand
-        COMBO(and,              &kp LS(NUMBER_6),     25 26, WIN MAC)
-        COMBO(plus,             &kp MINUS,            27 28, WIN MAC)
-        COMBO(minus,            &kp SLASH,            28 29, WIN MAC)
+        COMBO(plus,             &kp MINUS,            26 27, WIN MAC)
       
         // mixed combos
         COMBO(toggle_win_mac,   &tog MAC,             30 31 32 33, WIN MAC)
@@ -249,7 +239,21 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
         MODMORPH(mod_br_angled_win, &kp NON_US_BSLH, &kp LS(NON_US_BSLH))
         MODMORPH(mod_br_angled_mac, &kp GRAVE, &kp LS(GRAVE))
         MODMORPH(mod_bspc_del, &kp BACKSPACE, &kp DELETE)
+        MODMORPH(mod_amp_hash, &kp LS(NUMBER_6), &kp LS(NUMBER_3))
 
+//      COMBO(amp,              &kp LS(NUMBER_6),     25 26, WIN MAC)
+//      COMBO(minus,            &kp SLASH,            28 29, WIN MAC)
+//      COMBO(colon,            &kp LS(DOT),          17 28, WIN MAC)
+//      COMBO(percent,          &kp LS(NUMBER_5),     20 21, WIN MAC)
+//      COMBO(tilde,            &tilde,               21 22, WIN MAC)
+//      COMBO(equals,           &kp LS(NUMBER_0),     10 11, WIN MAC)
+//      COMBO(backtick,         &backtick,            8 9, WIN MAC)
+//      COMBO(hash,             &kp LS(NUMBER_3),     5 6, WIN MAC)
+//      COMBO(caret,            &caret,               15 6, WIN MAC)
+//      COMBO(slash,            &kp LS(NUMBER_7),     6 7, WIN MAC)
+//      COMBO(backslash_win,    &kp RA(MINUS),        17 8, WIN)
+//      COMBO(backslash_mac,    &kp RA(LS(NUMBER_7)), 17 8, MAC)
+//      COMBO(singlequote,      &kp BACKSLASH,        18 19, WIN MAC)
     };
 
 // 
