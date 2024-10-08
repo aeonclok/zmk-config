@@ -198,6 +198,7 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
         COMBO(doublequote,      &kp LS(NUMBER_2),     6 7, WIN MAC)
         COMBO(question,         &kp LS(MINUS),        7 8, WIN MAC)
         COMBO(exclamation,      &kp LS(NUMBER_1),     7 18, WIN MAC)
+        COMBO(squot_btick,      &mod_squot_btick,     16 7, WIN MAC)
         // TODO modmorph singlequote backtick, Copy
 
         // 2 and 2+3 row combos left hand
@@ -240,6 +241,7 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
         MODMORPH(mod_br_angled_mac, &kp GRAVE, &kp LS(GRAVE))
         MODMORPH(mod_bspc_del, &kp BACKSPACE, &kp DELETE)
         MODMORPH(mod_amp_hash, &kp LS(NUMBER_6), &kp LS(NUMBER_3))
+        MODMORPH(mod_squot_btick, &kp BACKSLASH, &backtick)
 
 //      COMBO(amp,              &kp LS(NUMBER_6),     25 26, WIN MAC)
 //      COMBO(minus,            &kp SLASH,            28 29, WIN MAC)
