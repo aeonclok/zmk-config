@@ -120,39 +120,6 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
 //            │  4  │       │  2  │       │  2  │       │  3  │
 //            └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-  //
-//            @    {}    €          #   /  bs/del  "    0  1  2  3  4    5  6  7  8  9  
-//        esc  tab                    "      \          10 11 12 13 14   15 16 17 18 19 
-//      =     !    ()    <>                   ?   '*    20 21 22 23 24   25 26 27 28 29 
-//      %     ~    []    $          &        +\   -_             30 31   32 33          
-  //
-//        0             1             2             3             4                  5             6             7             8              9
-  //
-  //   Square Brackets [ and ]
-  //   Equal Sign and Asterisk = and %
-  //   Copy and Cut, windows and mac
-  //   Paste
-  //   Switcher (super tab)
-  //   Single Quote and Backtick 'and `
-  //   Angle Brackets < and >
-  //   Forward and Backslash / and \
-  //   Ampersand and Hash & and #
-  //   Plus +
-  //   Minus and Underscore - and _
-  //   Pipe and Percentag | and %
-  //   Tilde and Caret ~ and ^
-  //   Dollar Sign and euro $ and €
-  //   At Symbol @
-  //
-  //   Return
-  //   Backspace and Delete
-  //   Esc
-  //   Tab
-  //   Exclamation and Question Mark ? and !
-  //   Curly Brackets { and }
-  //   Parentheses ( and )
-  //   Double Quote "
-  //
 
     combos {
         compatible = "zmk,combos";
@@ -208,7 +175,7 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
 
         // 3 row combos left hand
         COMBO(amp_hash,         &mod_amp_hash,        22 23, WIN MAC NUM)
-        COMBO(tilde_caret       &mod_tilde_caret,     21 22, WIN MAC NUM)
+        COMBO(tilde_caret,      &mod_tilde_caret,     21 22, WIN MAC NUM)
 
         // 3 row combos right hand
         COMBO(plus,             &kp MINUS,            26 27, WIN MAC NUM)
