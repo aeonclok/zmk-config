@@ -133,11 +133,12 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
 //            ┌─────┐    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘                    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘    ┌─────┐
 //        A   │     │   L   │ Esc │   S   │ ( ) │   T   │     │   K                  H   │     │   N   │Retrn│   E   │Bs Dl│   I   │     │    O
 //            └──┬──┘    ┌──└──┬──┘──┐ ┌──└──┬──┘──┐ ┌──└──┬──┘──┐                    ┌──└──┬──┘──┐ ┌──└──┬──┘──┐ ┌──└──┬──┘──┐    └──┬──┘
-// ├─────────────┼───────│     │     │─│     │ < > │─│     │  $  │───────┤    ├───────│Paste│     │─│ = % │     │─│ / \ │ |   │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
+// ├─────────────┼───────│     │     │─│     │ < > │─│     │  $  │───────┤    ├───────│Paste│     │─│ = % │     │─│  |  │ / \ │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //            ┌─────┐    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘                    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘    ┌─────┐
 //        Z   │     │   X   │ ~ ^ │   C   │ & # │   V   │     │   B                  W   │     │   M   │  +  │   Ä   │ - _ │  . :  │     │   , ;
 //            └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘                          └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────╯
+    // ==/
         // 1 and 1+2 row combos left hand
         COMBO(Q_D,              &trans,               0 1, WIN MAC NUM)
         COMBO(TAB,              &kp TAB,              1 2, WIN MAC NUM)
@@ -167,10 +168,10 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
         COMBO(enter,            &kp RET,              16 17, WIN MAC NUM)
         COMBO(backspace_delete, &mod_bspc_del,        17 18, WIN MAC NUM)
         COMBO(equals_percent,   &mod_equals_percent,  26 17, WIN MAC NUM)
-        COMBO(mod_slashes_win,  &mod_slashes_win,     27 18, WIN NUM)
-        COMBO(mod_slashes_mac,  &mod_slashes_mac,     27 18, MAC NUM)
-        COMBO(pipe_mac,         &kp RA(NUMBER_7),     17 28, MAC NUM)
-        COMBO(pipe_win,         &kp RA(NON_US_BSLH),  17 28, WIN NUM)
+        COMBO(mod_slashes_win,  &mod_slashes_win,     17 28, WIN NUM)
+        COMBO(mod_slashes_mac,  &mod_slashes_mac,     17 28, MAC NUM)
+        COMBO(pipe_mac,         &kp RA(NUMBER_7),     27 18, MAC NUM)
+        COMBO(pipe_win,         &kp RA(NON_US_BSLH),  27 18, WIN NUM)
         // TODO Paste
 
         // 3 row combos left hand
@@ -202,7 +203,7 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
         MODMORPH(mod_bspc_del, &kp BACKSPACE, &kp DELETE)
         MODMORPH(mod_amp_hash, &kp LS(NUMBER_6), &kp LS(NUMBER_3))
         MODMORPH(mod_squot_btick, &kp BACKSLASH, &backtick)
-        MODMORPH(mod_equals_percent, &kp LS(NUMBER_0), &kp LS(NUMBER_0))
+        MODMORPH(mod_equals_percent, &kp LS(NUMBER_0), &kp LS(NUMBER_5))
         MODMORPH(mod_tilde_caret, &tilde, &caret)
         MODMORPH(mod_slashes_mac, &kp LS(NUMBER_7), &kp RA(LS(NUMBER_7)))
         MODMORPH(mod_slashes_win, &kp LS(NUMBER_7), &kp RA(MINUS))
