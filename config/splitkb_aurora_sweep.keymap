@@ -102,6 +102,16 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L KEYS_T)
 MAKE_HRMS(hmls, &kp, &kp, KEYS_R KEYS_T)
 MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
 
+
+// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+ZMK_MOD_MORPH(smart_shft,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+&caps_word {  // mods deactivate caps-word, requires PR #1451
+    /delete-property/ ignore-modifiers;
+};
+
 / { 
 
 //  ZMK_COMBO(name, bindings, keypos, layers, timeout, prior_idle, extra)
@@ -257,7 +267,7 @@ MAKE_HRMS(hmrs, &kp, &kp, KEYS_L KEYS_T)
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp Z         &kp X         &kp C         &kp V         &kp B              &kp W         &kp M         &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                  SMART_NUM     &kp LSHFT          &lt 3 SPACE   &lt 3 RET  
+                                                  SMART_NUM     &smart_shft          &lt 3 SPACE   &lt 3 RET  
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
