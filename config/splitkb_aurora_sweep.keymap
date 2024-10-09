@@ -153,7 +153,7 @@ ZMK_MOD_MORPH(smart_shft,
         COMBO(Q_D,              &trans,               0 1, WIN MAC NUM)
         COMBO(TAB,              &kp TAB,              1 2, WIN MAC NUM)
         COMBO(br_curly_mac,     &mod_br_curly_mac,    2 3, MAC NUM)
-        COMBO(br_curly_win,     &mod_br_curly_mac,    2 3, WIN NUM)
+        COMBO(br_curly_win,     &mod_br_curly_win,    2 3, WIN NUM)
         COMBO(euro_mac,         &kp LS(NUMBER_4),     3 4, MAC NUM)
         COMBO(euro_win,         &kp RA(E),            3 4, WIN NUM)
         COMBO(br_square,        &mod_br_square,       2 13, WIN MAC NUM)
@@ -275,13 +275,13 @@ ZMK_MOD_MORPH(smart_shft,
     default_layer_mac {
     bindings = <
     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &kp Q         &hml RALT D   &kp J         &kp P         &kp G              &kp F         &kp R         &kp U         &hmr RALT Y   &kp SEMI 
+        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &hml LCTRL A  &hml LALT L   &hml LGUI S   &trans        &kp K              &kp H         &trans        &hmr RGUI E   &hmr LALT I   &hmr RCTRL O
+        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &kp Z         &kp X         &kp C         &kp V         &kp B              &kp W         &kp M         &kp SQT       &kp DOT       &kp COMMA
+        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                  &trans        &trans             &lt 3 SPACE   &lt 3 RET 
+                                                  &trans        &trans             &trans        &trans
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
