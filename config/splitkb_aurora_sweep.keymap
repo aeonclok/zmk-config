@@ -216,10 +216,10 @@ ZMK_TRI_STATE(quick_sw_mac,
 // ├─────────────┼───────│QckSw│Swtch│─│     │ [ ] │─│     │  @  │───────┤    ├───────│     │     │─│ ' ´ │     │─│     │  !  │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //            ┌─────┐    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘                    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘    ┌─────┐
 //      7 A   │     │ 5 L   │ Esc │ 3 S   │ ( ) │ 1 T   │     │   K                0 H   │     │ 2 N   │Rtrn │ 4 E   │Bs Dl│ 6 I   │     │ 8 O
-//      Ctrl  └──┬──┘ Alt┌──└──┬──┘──Gui──└──┬──┘──┐ ┌──└──┬──┘──┐                    ┌──└──┬──┘──┐ ┌──└──┬──┘──Gui──└──┬──┘──┐Alt └──┬──┘ Ctrl
-// ├─────────────┼───────│Copy │Paste│─│     │ < > │─│     │  $  │───────┤    ├───────│     │     │─│ = % │     │─│  |  │ / \ │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
+//      Ctrl  └──┬──┘ Alt┌──└──┬──┘──Gui──└──┬──┘──Num──└──┬──┘──┐                    ┌──└──┬──┘──Num──└──┬──┘──Gui──└──┬──┘──┐Alt └──┬──┘ Ctrl
+// ├─────────────┼───────│Copy │Paste│─│     │ < > │─│     │  $  │───────┤    ├───────│     │     │─│ = % │  :  │─│  |  │ / \ │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //            ┌─────┐    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘                    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘    ┌─────┐
-//        Z   │     │   X   │ ~ ^ │   C   │ & # │ 9 V   │     │   B                8 W   │     │   M   │  +  │   Ä   │ - _ │  . :  │     │  , ;
+//        Z   │     │   X   │ ~ ^ │   C   │ & # │ 9 V   │     │   B                8 W   │     │   M   │ + * │   Ä   │ - _ │  . :  │     │  , ;
 //            └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘                          └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //
@@ -262,6 +262,7 @@ ZMK_TRI_STATE(quick_sw_mac,
         COMBO(enter,            &kp RET,              16 17, WIN MAC NUM)
         COMBO(backspace_delete, &mod_bspc_del,        17 18, WIN MAC NUM)
         COMBO(equals_percent,   &mod_equals_percent,  26 17, WIN MAC NUM)
+        COMBO(colon,            &kp LS(DOT),          26 17, WIN MAC NUM)
         COMBO(mod_slashes_win,  &mod_slashes_win,     17 28, WIN NUM)
         COMBO(mod_slashes_mac,  &mod_slashes_mac,     17 28, MAC NUM)
         COMBO(pipe_mac,         &kp RA(NUMBER_7),     27 18, MAC NUM)
@@ -274,13 +275,13 @@ ZMK_TRI_STATE(quick_sw_mac,
         COMBO(tilde_caret,      &mod_tilde_caret,     21 22, WIN MAC NUM MOUSE)
 
         // 3 row combos right hand
-        COMBO(plus,             &kp MINUS,            26 27, WIN MAC NUM MOUSE)
+        COMBO(plus_asterisk,    &mod_plus_asterisk,   26 27, WIN MAC NUM MOUSE)
         COMBO(minus,            &kp SLASH,            27 28, WIN MAC NUM MOUSE)
       
         // mixed combos
         COMBO(toggle_win_mac,   &tog MAC,             30 31 32 33, WIN MAC NUM MOUSE)
         COMBO(toggle_mouse,     &tog MOUSE,           6 8, WIN MAC NUM MOUSE)
-        COMBO(toggle_num,       &tog NUM,           13 16, WIN MAC NUM MOUSE)
+        COMBO(toggle_num,       &tog NUM,             13 16, WIN MAC NUM MOUSE)
     };
 
     behaviors {
@@ -304,6 +305,7 @@ ZMK_TRI_STATE(quick_sw_mac,
         MODMORPH(mod_tilde_caret, &tilde, &caret)
         MODMORPH(mod_slashes_mac, &kp LS(NUMBER_7), &kp RA(LS(NUMBER_7)))
         MODMORPH(mod_slashes_win, &kp LS(NUMBER_7), &kp RA(MINUS))
+        MODMORPH(mod_plus_asterisk, &kp MINUS ,&kp LS(BACKSLASH))
 
 //      COMBO(amp,              &kp LS(NUMBER_6),     25 26, WIN MAC)
 //      COMBO(colon,            &kp LS(DOT),          17 28, WIN MAC)
@@ -341,6 +343,15 @@ ZMK_TRI_STATE(quick_sw_mac,
 //                 TAB   <-   SPACE ENTER
 // 
 // 
+  // most used vim keys:
+  // esc, :, q
+  // h, j, k, l
+  // w, b, e
+  // c, i, o, a
+  // d, x
+  // y, p
+  // /, s, f, n
+  // v
 
     keymap {
     compatible = "zmk,keymap";
@@ -354,7 +365,7 @@ ZMK_TRI_STATE(quick_sw_mac,
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp Z         &kp X         &kp C         &kp V         &kp B              &kp W         &kp M         &kp SQT       &kp DOT       &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                  SMART_NUM     &smart_shft          &lt 3 SPACE   &lt 3 RET  
+                                                  SMART_NUM     &smart_shft        &lt 3 SPACE   &mo 3
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
