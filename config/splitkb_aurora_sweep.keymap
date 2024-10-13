@@ -262,7 +262,7 @@ ZMK_TRI_STATE(quick_sw_mac,
         COMBO(enter,            &kp RET,              16 17, WIN MAC NUM)
         COMBO(backspace_delete, &mod_bspc_del,        17 18, WIN MAC NUM)
         COMBO(equals_percent,   &mod_equals_percent,  26 17, WIN MAC NUM)
-        COMBO(colon,            &kp LS(DOT),          26 17, WIN MAC NUM)
+        COMBO(colon,            &kp LS(DOT),          27 16, WIN MAC NUM)
         COMBO(mod_slashes_win,  &mod_slashes_win,     17 28, WIN NUM)
         COMBO(mod_slashes_mac,  &mod_slashes_mac,     17 28, MAC NUM)
         COMBO(pipe_mac,         &kp RA(NUMBER_7),     27 18, MAC NUM)
