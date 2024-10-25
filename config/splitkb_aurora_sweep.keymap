@@ -21,6 +21,8 @@
 #define NUM 2
 #define NAV 3
 #define MOUSE 5
+#define HAKEA 6
+#define REPEAT 7
 
 #define AS(keycode) &as LS(keycode) keycode
 
@@ -148,8 +150,8 @@ ZMK_TRI_STATE(quick_sw_mac,
 
 
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+// #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
+// #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 
 // Config from @caksoylar, defaults in comments
@@ -212,11 +214,11 @@ ZMK_TRI_STATE(quick_sw_mac,
 //
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                                                                                                                                 ──────┬─────────────┬─────────────┬───────────┬─────────────╮
 //            ┌─────┐       ┌─────┐       ┌─────┐       ┌─────┐                          ┌─────┐       ┌─────┐       ┌─────┐       ┌─────┐
-//        Q   │     │   D   │ Tab │   J   │ { } │   P   │  €  │   G                  F   │     │   R   │ "   │   U   │  ?  │   Y   │     │   Ö
+//        Q   │hakea│   D   │ Tab │   J   │ { } │   P   │  €  │   G                  F   │     │   R   │ "   │   U   │  ?  │   Y   │     │   Ö
 //            └──┬──┘    ┌──└──┬──┘──┐ ┌──└──┬──┘──┐ ┌──└──┬──┘──┐                    ┌──└──┬──┘──┐ ┌──└──┬──┘──┐ ┌──└──┬──┘──┐    └──┬──┘
 // ├─────────────┼───────│QckSw│Swtch│─│     │ [ ] │─│     │  @  │───────┤    ├───────│     │     │─│ ' ´ │     │─│     │  !  │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //            ┌─────┐    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘                    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘    ┌─────┐
-//      7 A   │     │ 5 L   │ Esc │ 3 S   │ ( ) │ 1 T   │     │   K                0 H   │     │ 2 N   │Rtrn │ 4 E   │Bs Dl│ 6 I   │     │ 8 O
+//      7 A   │stnk1│ 5 L   │ Esc │ 3 S   │ ( ) │ 1 T   │     │   K                0 H   │     │ 2 N   │Rtrn │ 4 E   │Bs Dl│ 6 I   │     │ 8 O
 //      Ctrl  └──┬──┘ Alt┌──└──┬──┘──Gui──└──┬──┘──Num──└──┬──┘──┐                    ┌──└──┬──┘──Num──└──┬──┘──Gui──└──┬──┘──┐Alt └──┬──┘ Ctrl
 // ├─────────────┼───────│Copy │Paste│─│     │ < > │─│     │  $  │───────┤    ├───────│     │     │─│ = % │  :  │─│  |  │ / \ │───────┼─────────────┤                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────┤
 //            ┌─────┐    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘                    └──┌─────┐──┘ └──┌─────┐──┘ └──┌─────┐──┘    ┌─────┐
@@ -224,65 +226,66 @@ ZMK_TRI_STATE(quick_sw_mac,
 //            └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘                          └──┬──┘       └──┬──┘       └──┬──┘       └──┬──┘
 // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯                                                                                                                                 ──────┼─────────────┼─────────────┼─────────────┼─────────────╯
 //
-//                                                SmrtNm   + SmrtShft       L2 + Space     L3 + Rtrn
+//                                                SmrtNm   + SmrtShft           L2 + Space     L3 + Rtrn
 //
 //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
 //
 //
 //
         // 1 and 1+2 row combos left hand
-        COMBO(Q_D,              &trans,               0 1, WIN MAC NUM MOUSE NAV)
-        COMBO(TAB,              &kp TAB,              1 2, WIN MAC NUM MOUSE NAV)
-        COMBO(br_curly_mac,     &mod_br_curly_mac,    2 3, MAC NUM MOUSE NAV)
-        COMBO(br_curly_win,     &mod_br_curly_win,    2 3, WIN NUM MOUSE NAV)
-        COMBO(euro_mac,         &kp LS(NUMBER_4),     3 4, MAC NUM MOUSE NAV)
-        COMBO(euro_win,         &kp RA(E),            3 4, WIN NUM MOUSE NAV)
-        COMBO(br_square,        &mod_br_square,       2 13, WIN MAC NUM MOUSE NAV)
-        COMBO(at,               &kp RA(NUMBER_2),     3 14, WIN MAC NUM MOUSE NAV)
-        COMBO(switcher_mac,     &switcher_mac,        1 12, MAC NUM MOUSE NAV)
-        COMBO(quick_sw_mac,     &quick_sw_mac,        11 2, MAC NUM MOUSE NAV)
-        COMBO(switcher_win,     &switcher_win,        1 12, WIN NUM MOUSE NAV)
-        COMBO(quick_sw_win,     &quick_sw_win,        11 2, WIN NUM MOUSE NAV)
+        COMBO(tog_hakea,        &tog HAKEA,           0 1, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(tog_stnk1,        &tog REPEAT,           10 11, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(TAB,              &kp TAB,              1 2, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(br_curly_mac,     &mod_br_curly_mac,    2 3, MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(br_curly_win,     &mod_br_curly_win,    2 3, WIN NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(euro_mac,         &kp LS(NUMBER_4),     3 4, MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(euro_win,         &kp RA(E),            3 4, WIN NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(br_square,        &mod_br_square,       2 13, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(at,               &kp RA(NUMBER_2),     3 14, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(switcher_mac,     &switcher_mac,        1 12, MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(quick_sw_mac,     &quick_sw_mac,        11 2, MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(switcher_win,     &switcher_win,        1 12, WIN NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(quick_sw_win,     &quick_sw_win,        11 2, WIN NUM MOUSE NAV HAKEA REPEAT)
         
         // 1 and 1+2 row combos right hand
-        COMBO(doublequote,      &kp LS(NUMBER_2),     6 7, WIN MAC NUM NAV)
-        COMBO(question,         &kp LS(MINUS),        7 8, WIN MAC NUM NAV)
-        COMBO(exclamation,      &kp LS(NUMBER_1),     7 18, WIN MAC NUM NAV)
-        COMBO(squot_btick,      &mod_squot_btick,     16 7, WIN MAC NUM NAV)
-        COMBO(copy_mac,         &kp LG(C),            15 6, MAC NUM NAV)
-        COMBO(copy_win,         &kp LC(C),            16 7, WIN NUM NAV)
+        COMBO(doublequote,      &kp LS(NUMBER_2),     6 7, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(question,         &kp LS(MINUS),        7 8, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(exclamation,      &kp LS(NUMBER_1),     7 18, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(squot_btick,      &mod_squot_btick,     16 7, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(copy_mac,         &kp LG(C),            15 6, MAC NUM NAV HAKEA REPEAT)
+        COMBO(copy_win,         &kp LC(C),            16 7, WIN NUM NAV HAKEA REPEAT)
 
         // 2 and 2+3 row combos left hand
-        COMBO(esc,              &kp ESC,              11 12, WIN MAC NUM MOUSE NAV)
-        COMBO(br_round,         &mod_br_round,        12 13, WIN MAC NUM MOUSE NAV)
-        COMBO(br_angled_mac,    &mod_br_angled_mac,   12 23, MAC NUM MOUSE NAV)
-        COMBO(br_angled_win,    &mod_br_angled_win,   12 23, WIN NUM MOUSE NAV)
-        COMBO(dollar,           &kp RA(NUMBER_4),     13 24, WIN MAC NUM MOUSE NAV)
+        COMBO(esc,              &kp ESC,              11 12, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(br_round,         &mod_br_round,        12 13, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(br_angled_mac,    &mod_br_angled_mac,   12 23, MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(br_angled_win,    &mod_br_angled_win,   12 23, WIN NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(dollar,           &kp RA(NUMBER_4),     13 24, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
 
         // 2 and 2+3 row combos right hand
-        COMBO(enter,            &kp RET,              16 17, WIN MAC NUM NAV)
-        COMBO(backspace_delete, &mod_bspc_del,        17 18, WIN MAC NUM NAV)
-        COMBO(equals_percent,   &mod_equals_percent,  26 17, WIN MAC NUM NAV)
-        COMBO(colon,            &kp LS(DOT),          27 16, WIN MAC NUM NAV)
-        COMBO(mod_slashes_win,  &mod_slashes_win,     17 28, WIN NUM NAV)
-        COMBO(mod_slashes_mac,  &mod_slashes_mac,     17 28, MAC NUM NAV)
-        COMBO(pipe_mac,         &kp RA(NUMBER_7),     27 18, MAC NUM NAV)
-        COMBO(pipe_win,         &kp RA(NON_US_BSLH),  27 18, WIN NUM NAV)
-        COMBO(paste_mac,        &kp LG(V),            25 16, MAC NUM NAV)
-        COMBO(paste_win,        &kp LC(V),            26 17, WIN NUM NAV)
+        COMBO(enter,            &kp RET,              16 17, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(backspace_delete, &mod_bspc_del,        17 18, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(equals_percent,   &mod_equals_percent,  26 17, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(colon,            &kp LS(DOT),          27 16, WIN MAC NUM NAV HAKEA REPEAT)
+        COMBO(mod_slashes_win,  &mod_slashes_win,     17 28, WIN NUM NAV HAKEA REPEAT)
+        COMBO(mod_slashes_mac,  &mod_slashes_mac,     17 28, MAC NUM NAV HAKEA REPEAT)
+        COMBO(pipe_mac,         &kp RA(NUMBER_7),     27 18, MAC NUM NAV HAKEA REPEAT)
+        COMBO(pipe_win,         &kp RA(NON_US_BSLH),  27 18, WIN NUM NAV HAKEA REPEAT)
+        COMBO(paste_mac,        &kp LG(V),            25 16, MAC NUM NAV HAKEA REPEAT)
+        COMBO(paste_win,        &kp LC(V),            26 17, WIN NUM NAV HAKEA REPEAT)
 
         // 3 row combos left hand
-        COMBO(amp_hash,         &mod_amp_hash,        22 23, WIN MAC NUM MOUSE NAV)
-        COMBO(tilde_caret,      &mod_tilde_caret,     21 22, WIN MAC NUM MOUSE NAV)
+        COMBO(amp_hash,         &mod_amp_hash,        22 23, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(tilde_caret,      &mod_tilde_caret,     21 22, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
 
         // 3 row combos right hand
-        COMBO(plus_asterisk,    &mod_plus_asterisk,   26 27, WIN MAC NUM MOUSE NAV)
-        COMBO(minus,            &kp SLASH,            27 28, WIN MAC NUM MOUSE NAV)
+        COMBO(plus_asterisk,    &mod_plus_asterisk,   26 27, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(minus,            &kp SLASH,            27 28, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
       
         // mixed combos
-        COMBO(toggle_win_mac,   &tog MAC,             30 31 32 33, WIN MAC NUM MOUSE NAV)
-        COMBO(toggle_mouse,     &tog MOUSE,           6 8, WIN MAC NUM MOUSE NAV)
-        COMBO(toggle_num,       &tog NUM,             13 16, WIN MAC NUM MOUSE NAV)
+        COMBO(toggle_win_mac,   &tog MAC,             30 31 32 33, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(toggle_mouse,     &tog MOUSE,           6 8, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(toggle_num,       &tog NUM,             13 16, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
     };
 
     behaviors {
@@ -365,19 +368,35 @@ ZMK_TRI_STATE(quick_sw_mac,
     keymap {
     compatible = "zmk,keymap";
 
+   //  default_layer_win{
+   //  bindings = <
+   //  // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+   //      &kp Q         &hml RALT D   &kp J         &kp P         &kp G              &kp F         &kp R         &kp U         &hmr RALT Y   &kp SEMI 
+   //  // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   //      &hml LCTRL A  &hml LALT L   &hml LGUI S   &hmln 2 T     &kp K              &kp H         &hmrn 2 N     &hmr RGUI E   &hmr LALT I   &hmr RCTRL O
+   //  // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+   //      &kp Z         &kp X         &kp C         &kp V         &kp B              &kp W         &kp M         &kp SQT       &kp DOT       &kp COMMA
+   //  // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+   //                                                SMART_NUM     &smart_shft        &lt 3 SPACE   &mo 3
+   //  //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
+   //  >;
+   //  };
+
+
     default_layer_win{
     bindings = <
     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-        &kp Q         &hml RALT D   &kp J         &kp P         &kp G              &kp F         &kp R         &kp U         &hmr RALT Y   &kp SEMI 
+        &kp F         &hml RALT P   &kp L         &kp H         &kp B              &kp W         &kp G         &kp O         &hmr RALT DOT &kp Q 
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &hml LCTRL A  &hml LALT L   &hml LGUI S   &hmln 2 T     &kp K              &kp H         &hmrn 2 N     &hmr RGUI E   &hmr LALT I   &hmr RCTRL O
+        &hml LCTRL S  &hml LALT T   &hml LGUI N   &hmln 2 K     &kp V              &kp C         &hmrn 2 U     &hmr RGUI A   &hmr LALT E   &hmr RCTRL I
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &kp Z         &kp X         &kp C         &kp V         &kp B              &kp W         &kp M         &kp SQT       &kp DOT       &kp COMMA
+        &kp J         &kp D         &kp R         &kp M         &kp X              &kp Z         &kp Y         &kp SQT       &kp SEMI      &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
                                                   SMART_NUM     &smart_shft        &lt 3 SPACE   &mo 3
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
+
 
     default_layer_mac {
     bindings = <
@@ -398,7 +417,7 @@ ZMK_TRI_STATE(quick_sw_mac,
     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &hml LCTRL N7 &hml LALT N5  &hml LGUI N3 &hmls LSHFT N1 &trans             &trans       &hmrs RSHFT N0 &hmr RGUI N2  &hmr LALT N4  &hmr RCTRL N6
+        &hml LCTRL N7 &hml LALT N5  &hml LGUI N3 &hmls LSHFT N1 &trans             &kp RA(N4)    &hmrs RSHFT N0 &hmr RGUI N2  &hmr LALT N4  &hmr RCTRL N6
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &trans        &trans        &trans        &kp N9        &trans             &trans        &kp N8        &trans        &trans        &trans
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
@@ -412,7 +431,7 @@ ZMK_TRI_STATE(quick_sw_mac,
     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
         &trans        &trans        &trans        &trans        &trans             &trans        &trans        &kp UP        &trans        &trans
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-        &trans        &trans        &trans        &trans        &trans             &trans        &kp LEFT      &kp DOWN      &kp RIGHT     &trans
+        &trans        &trans        &trans        &trans        &trans             &kp RA(N4)    &kp LEFT      &kp DOWN      &kp RIGHT     &trans
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &trans        &trans        &trans        &trans        &trans             &trans        &kp PAGE_UP   &trans        &kp PAGE_DOWN &trans
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
@@ -445,6 +464,40 @@ ZMK_TRI_STATE(quick_sw_mac,
         &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
                                                   &trans        &trans             &mkp LCLK     &mkp RCLK
+    //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
+    >;
+    };
+
+//  h p l m .  w , o ä z
+//  s t n k j  c u e a i
+//  b g r v d  f y ö x '
+                 
+    hakea_finnish {
+    bindings = <
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        &kp H         &hml RALT P   &kp L         &kp M         &kp DOT            &kp W         &kp COMMA     &kp O         &hmr RALT SQT &kp Z 
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &hml LCTRL S  &hml LALT T   &hml LGUI N   &hmln 2 K     &kp J              &kp C         &hmrn 2 U     &hmr RGUI E   &hmr LALT A   &hmr RCTRL I
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &kp B         &kp G         &kp R         &kp V         &kp D              &kp F         &kp Y         &kp SEMI      &kp X         &kp Q
+    // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+                                                  &trans        &trans             &trans        &trans
+    //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
+    >;
+    };
+
+     
+    repeater {
+    bindings = <
+    // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮    ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
+    // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+        &trans        &trans        &trans        &trans        &trans             &trans        &trans        &trans        &trans        &trans
+    // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
+                                                  &smart_shft   &key_repeat
+             &trans        &trans
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
