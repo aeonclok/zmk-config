@@ -13,7 +13,21 @@
 #
 ---
 include:
+  #  - board: nice_nano_v2
+  #    shield: splitkb_aurora_sweep_left
+  #    snippet: studio-rpc-usb-uart
+  #    cmake-args: -DCONFIG_ZMK_STUDIO=y
+  #  - board: nice_nano_v2
+  #   shield: splitkb_aurora_sweep_right
   - board: nice_nano_v2
-    shield: splitkb_aurora_sweep_left
+    shield: aeon_klik_left
+    snippet: studio-rpc-usb-uart
+    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: nice_nano_v2
-    shield: splitkb_aurora_sweep_right
+    shield: aeon_klik_right
+  #  - board: nice_nano_v2
+  #    snippet: studio-rpc-usb-uart
+  #    cmake-args: -DCONFIG_ZMK_STUDIO=y
+  #    shield: tuuveitwo_left
+  #  - board: nice_nano_v2
+  #    shield: tuuveitwo_right
