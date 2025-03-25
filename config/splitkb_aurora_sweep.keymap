@@ -233,8 +233,8 @@ ZMK_TRI_STATE(quick_sw_mac,
 //
 //
         // 1 and 1+2 row combos left hand
-        COMBO(tog_hakea,        &tog HAKEA,           0 1, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
-        COMBO(tog_stnk1,        &tog REPEAT,           10 11, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+//        COMBO(tog_hakea,        &tog HAKEA,           0 1, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+//        COMBO(tog_stnk1,        &tog REPEAT,           10 11, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
         COMBO(TAB,              &kp TAB,              1 2, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
         COMBO(br_curly_mac,     &mod_br_curly_mac,    2 3, MAC NUM MOUSE NAV HAKEA REPEAT)
         COMBO(br_curly_win,     &mod_br_curly_win,    2 3, WIN NUM MOUSE NAV HAKEA REPEAT)
@@ -286,6 +286,8 @@ ZMK_TRI_STATE(quick_sw_mac,
         COMBO(toggle_win_mac,   &tog MAC,             30 31 32 33, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
         COMBO(toggle_mouse,     &tog MOUSE,           6 8, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
         COMBO(toggle_num,       &tog NUM,             13 16, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+        COMBO(toggle_unlock,    &studio_unlock,       4 5, WIN MAC NUM MOUSE NAV HAKEA REPEAT)
+
     };
 
     behaviors {
@@ -392,7 +394,7 @@ ZMK_TRI_STATE(quick_sw_mac,
     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
         &kp J         &kp D         &kp R         &kp M         &kp X              &kp Z         &kp Y         &kp SQT       &kp SEMI      &kp COMMA
     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤    ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────╯
-                                                  SMART_NUM     &smart_shft        &lt 3 SPACE   &mo 3
+                                                  &smart_shft   &key_repeat        &lt 3 SPACE   &mo 3
     //                                           ╰─────────────┼─────────────┤    ├─────────────┼─────────────╯
     >;
     };
